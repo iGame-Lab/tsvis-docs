@@ -1,0 +1,54 @@
+site_name: Zjvis
+# Repository
+repo_name: Github
+repo_url: https://github.com/iGame-Lab/zjvis
+edit_uri: "blob/master/docs/"
+
+# Copyright
+copyright: Copyright &copy; 2015 - 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+nav:
+    - 首页: index.md
+
+    - 快速使用:
+      - 安装: quick_start/install.md
+      - 快速上手: quick_start/quickstart.md
+      - 启动可视化并在浏览器中查看: quick_start/run_visual.md
+
+    - 可视化日志写入:
+      - 模型结构: write_log/write_graph.md
+      - 标量数据: write_log/write_scalar.md
+      - 媒体数据: write_log/write_media.md
+      - 统计分析数据: write_log/write_statistic.md
+      - 降维分析数据: write_log/write_embedding.md
+      - 超参数: write_log/write_hyperparm.md
+      - 异常检测数据: write_log/write_exception.md
+
+    - 使用可视化模块:
+      - 模型结构: use_visualization/graph.md
+      - 标量数据: use_visualization/scalar.md
+      - 媒体数据: use_visualization/media.md
+      - 统计分析: use_visualization/statistic.md
+      - 降维分析: use_visualization/embedding.md
+      - 超参分析: use_visualization/hyperparm.md
+      - 异常检测: use_visualization/exception.md
+      - 用户定制: use_visualization/custom.md
+
+    - 开发者文档:
+      - API: developer/api.md
+      - 可视化前端: developer/frontend.md
+      - 可视化后端启动选项: developer/commandline_for_backend.md
+      - Bug反馈: developer/bugs.md
+
+    - 致谢:
+      - 开源软件: thanks/license.md
