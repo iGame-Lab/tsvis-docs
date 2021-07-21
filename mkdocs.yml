@@ -17,6 +17,19 @@ theme:
     primary: indigo
     accent: indigo
 
+extra_css:
+  - assets/css/simpleLightbox.min.css
+  - assets/css/lightbox.css
+
+extra_javascript:
+  - https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js
+  - assets/js/simpleLightbox.min.js
+  - assets/js/lightbox.js
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.attr_list
+
 nav:
     - 首页: index.md
 

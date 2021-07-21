@@ -78,3 +78,7 @@ pip install mkdocs mkdocs-material
 ```
 mkdocs serve
 ```
+
+如果图片在文档中太小看不清楚，可以使用点击放大功能，在图片后加上`{ .img-fluid }`即可
+
+也就是说，把`![](quick_start/images/demo.gif)`改为`![](quick_start/images/demo.gif){ .img-fluid }`即可
