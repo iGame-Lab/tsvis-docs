@@ -12,6 +12,7 @@ theme:
   language: zh
   features:
     - navigation.tabs
+    - content.tabs.link
   palette:
     scheme: default
     primary: indigo
@@ -29,6 +30,9 @@ extra_javascript:
 # Extensions
 markdown_extensions:
   - markdown.extensions.attr_list
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
 
 nav:
     - 首页: index.md
@@ -58,7 +62,7 @@ nav:
       - 用户定制: use_visualization/custom.md
 
     - 开发者文档:
-      - API: developer/api.md
+      - 后端请求API: developer/api.md
       - 可视化前端: developer/frontend.md
       - 可视化后端启动选项: developer/commandline_for_backend.md
       - Bug反馈: developer/bugs.md
