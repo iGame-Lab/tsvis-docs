@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -529,10 +534,49 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          模型结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         模型结构
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -755,6 +799,45 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -765,9 +848,31 @@
                   </a>
                 
                 
-                  <h1>模型结构</h1>
-                
-                
+                <h1 id="_1">模型结构使用教程</h1>
+<h2 id="_2">模块简介</h2>
+<p>模型结构模块用于展示模型的计算图与结构图。模块使用丰富的颜色来代表不同的神经元层和操作节点；通过隐藏节点的相关边、隐藏节点以及依据节点的出入度过滤节点这三种方法，让模型显示更清晰；通过鼠标可以通过点击节点和连边获得它们的结构信息以及在其上的数据流信息，数据流通过可视化方式展现。</p>
+<h2 id="_3">模块功能</h2>
+<p>1.节点展开</p>
+<p><img alt="func1.1" src="../images/graph/func1.1.png" />
+<img alt="func1.2" src="../images/graph/func1.2.png" /></p>
+<p>2.单击节点获取信息</p>
+<p><img alt="func2.1" src="../images/graph/func2.1.png" /></p>
+<p>3.隐藏相关边，复原相关边</p>
+<p><img alt="func3.1" src="../images/graph/func3.1.png" /></p>
+<p><img alt="func3.2" src="../images/graph/func3.2.png" /></p>
+<p>4.隐藏节点</p>
+<p><img alt="func4.1" src="../images/graph/func4.1.png" /></p>
+<p><img alt="func4.2" src="../images/graph/func4.2.png" /></p>
+<p><img alt="func4.3" src="../images/graph/func4.3.png" /></p>
+<p>5.批量隐藏</p>
+<p><img alt="func5.1" src="../images/graph/func5.1.png" /></p>
+<p><img alt="func5.2" src="../images/graph/func5.2.png" /></p>
+<p>在布局基础上继续隐藏...
+<img alt="func5.3" src="../images/graph/func5.3.png" /></p>
+<p>继续隐藏...
+<img alt="func5.4" src="../images/graph/func5.4.png" /></p>
+<p><img alt="func5.5" src="../images/graph/func5.5.png" /></p>
+<p><img alt="func5.6" src="../images/graph/func5.6.png" /></p>
                 
               
               

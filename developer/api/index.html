@@ -688,7 +688,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    简介
+    说明
   </a>
   
 </li>
@@ -708,8 +708,71 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#graph" class="md-nav__link">
+    模型结构Graph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scalar" class="md-nav__link">
-    标量信息Scalar
+    标量Scalar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    图片Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio" class="md-nav__link">
+    音频Audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    文本Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram" class="md-nav__link">
+    直方图Histogram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribution" class="md-nav__link">
+    分布图Distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embeddding" class="md-nav__link">
+    高维数据Embeddding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    异常Exception
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperparam" class="md-nav__link">
+    超参数Hyperparam
   </a>
   
 </li>
@@ -833,7 +896,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    简介
+    说明
   </a>
   
 </li>
@@ -853,8 +916,71 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#graph" class="md-nav__link">
+    模型结构Graph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scalar" class="md-nav__link">
-    标量信息Scalar
+    标量Scalar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    图片Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio" class="md-nav__link">
+    音频Audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    文本Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram" class="md-nav__link">
+    直方图Histogram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribution" class="md-nav__link">
+    分布图Distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embeddding" class="md-nav__link">
+    高维数据Embeddding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    异常Exception
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperparam" class="md-nav__link">
+    超参数Hyperparam
   </a>
   
 </li>
@@ -877,8 +1003,38 @@
                 
                 
                 <h1 id="api">后端请求API</h1>
-<h2 id="_1">简介</h2>
-<p>Zjvis在设计和开发方式上采用RESTful风格，前后端分离，对外提供的是数据资源的访问接口。</p>
+<h2 id="_1">说明</h2>
+<p>Zjvis在设计和开发方式上采用RESTful风格，前后端分离，对外提供的是数据资源的访问接口。在返回的数据格式上，所有的API均采用一下的格式</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="err">code</span><span class="p">,</span> 
+  <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其中<code>code</code>表示返回数据的状态码如下表所示</p>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">200</td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="center">请求失败，后端发生内部错误</td>
+</tr>
+</tbody>
+</table>
+<p><code>msg</code>为返回数据的消息字段，用于提示返回成功信息或错误信息，<code>data</code>为返回的数据字段。</p>
+<div class="admonition tip 注意">
+<p class="admonition-title">Tip</p>
+<p>为了方便说明，下文中所有的API返回数据格式均为<code>data</code>字段中的内容，不包含<code>code</code>和<code>msg</code>字段</p>
+</div>
 <h2 id="_2">初始请求</h2>
 <div class="admonition 资源访问路径">
 <p class="admonition-title">资源访问路径</p>
@@ -896,9 +1052,11 @@
 <div class="highlight"><pre><span></span><code>/api/getCategory
 </code></pre></div>
 </div>
-<p>在初始化完成后，需请求类目信息。该接口返回当前可视化日志中所有类目的标签(tag)，若日志中不存在某一类目信息，则返回空数组。</p>
+<p>在初始化完成后，需请求类目信息。该接口返回当前可视化日志中所有类目的标签(tag)，若日志中不存在某一类目信息，
+则该类目名不会出现在返回数据中。</p>
 <p>其中模型结构<code>graph</code>的tag信息固定为<code>s_graph</code>与<code>c_graph</code>，<code>s_graph</code>表示结构图而<code>c_graph</code>表示结构图；
-超参数没有tag，若日志中含有超参数则返回tag值为<code>true</code></p>
+超参数没有tag，若日志中含有超参数则返回tag值为<code>true</code>。</p>
+<p>由于统计分析中的分布图(Distribution)是通过直方图(Histogram)数据计算得到的，所以若日志中存在直方图，则必存在分布图。</p>
 <p>该接口返回数据格式如下：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;runname1&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -908,7 +1066,10 @@
       <span class="nt">&quot;audio&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;audio_tag1&quot;</span><span class="p">,</span> <span class="err">...</span><span class="p">],</span> 
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;text_tag1&quot;</span><span class="p">,</span> <span class="err">...</span><span class="p">]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;statistic&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;histogram&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;histogram_tag1&quot;</span><span class="p">,</span> <span class="err">...</span><span class="p">]},</span> 
+    <span class="nt">&quot;statistic&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;histogram&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;histogram_tag1&quot;</span><span class="p">,</span> <span class="err">...</span><span class="p">],</span>
+      <span class="nt">&quot;distribution&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;distribution_tag1&quot;</span><span class="p">,</span> <span class="err">...</span><span class="p">]</span>
+    <span class="p">},</span> 
     <span class="nt">&quot;graph&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;c_graph&quot;</span><span class="p">],</span>
   <span class="p">},</span>
   <span class="nt">&quot;runname2&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -923,7 +1084,22 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="scalar">标量信息Scalar</h2>
+<h2 id="graph">模型结构Graph</h2>
+<p>zjvis中支持两种方式的模型结构，一种是包含计算节点的计算图(Calculation graph)，另一种是只有网络结构的结构图(Structer graph)</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>/api/graph?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>与<code>tag</code>缺一不可。在模型结构中，<code>tag</code>的取值固定为<code>c_graph</code>和<code>s_graph</code>，当<code>tag=c_graph</code>时表示请求计算图，而<code>tag=s_graph</code>时表示请求结构图</p>
+<p>例如请求<code>/api/graph?run=train&amp;tag=c_graph</code>表示得到<code>run=train</code>下的计算图数据。</p>
+<p>该接口返回数据格式如下：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;net&quot;</span><span class="p">:</span> <span class="s2">&quot;[{...}]&quot;</span><span class="p">,</span>  <span class="err">//graph图结构数据</span>
+  <span class="nt">&quot;operator&quot;</span><span class="p">:</span> <span class="s2">&quot;[...]&quot;</span> <span class="err">//操作结点分类数据</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="scalar">标量Scalar</h2>
 <div class="admonition 资源访问路径">
 <p class="admonition-title">资源访问路径</p>
 <div class="highlight"><pre><span></span><code>/api/scalar?run={run}&amp;tag={tag}
@@ -940,6 +1116,315 @@
     {&quot;wall_time&quot;: 1587176425.348953, &quot;step&quot;: 190, &quot;value&quot;: -0.002039810409769416}
   ]
 }
+</code></pre></div>
+<h2 id="image">图片Image</h2>
+<p>由于图片属于媒体数据，数据量较大，如果和标量数据一样全部返回会造成前端响应超时，所以图片请求分为两个地址。
+首先请求图片的信息</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/image?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>与<code>tag</code>缺一不可，该接口返回指定<code>run</code>下<code>tag={tag}</code>的图片信息，其中包括日志写入时的时间戳<code>wall_time</code>，
+当前迭代步数<code>step</code>，图片的大小<code>width</code>和<code>height</code>。该API返回的数据样例为</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;image_tag&quot;</span><span class="p">:</span> 
+  <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1587176317.1721938</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span>
+                                          <span class="err">...</span>
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1587176425.348953</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">,</span> <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>得到图片信息后，再向后端请求图片本身</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/image_raw?step={step}&amp;run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>step</code>、<code>run</code>与<code>tag</code>缺一不可。</p>
+<p>例如<code>api/image_raw?step=0&amp;run=.&amp;tag=input_reshape/input/image/0</code>
+表示访问<code>step</code>为0，指定<code>run</code>为<code>.</code>且<code>tag</code>为<code>input_reshape/input/image/0</code>的图片数据。
+该API返回经过base64编码的图片数据。</p>
+<h2 id="audio">音频Audio</h2>
+<p>与图片类似，音频数据量较大，如果和标量数据一样全部返回会造成前端响应超时，所以音频请求分为两个地址。
+首先请求音频的信息</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/text?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>与<code>tag</code>缺一不可，该接口返回指定<code>run</code>下<code>tag={tag}</code>的音频信息，其中包括日志写入时的时间戳<code>wall_time</code>，
+当前迭代步数<code>step</code>，音频属性<code>label</code>和音频的格式<code>contentType</code>。该API返回的数据的样例为</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;waveform/audio_summary&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1587475006.5022004</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+     <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;&lt;em&gt;Wave type:&lt;/em&gt; &lt;code&gt;sine_wave&lt;/code&gt;. &lt;em&gt;Frequency:&lt;/em&gt; 448.98 Hz. &lt;em&gt;Sample:&lt;/em&gt; 1 of 1.&lt;/p&gt;&quot;</span><span class="p">,</span> 
+     <span class="nt">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;audio/wav&quot;</span>
+    <span class="p">},</span>
+                                        <span class="err">...</span>
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1587475006.7304769</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> 
+     <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;&lt;em&gt;Wave type:&lt;/em&gt; &lt;code&gt;sine_wave&lt;/code&gt;. &lt;em&gt;Frequency:&lt;/em&gt; 880.00 Hz. &lt;em&gt;Sample:&lt;/em&gt; 1 of 1.&lt;/p&gt;&quot;</span><span class="p">,</span> 
+     <span class="nt">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;audio/wav&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>得到音频信息后，再向后端请求音频本身</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/audio_raw?step={step}&amp;run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>step</code>、<code>run</code>与<code>tag</code>缺一不可。</p>
+<p>例如<code>api/audio_raw?step=0&amp;run=.&amp;tag=waveform/audio_summary</code>
+表示访问<code>step</code>为0，指定<code>run</code>为<code>.</code>且<code>tag</code>为<code>waveform/audio_summary</code>的音频数据。
+该API返回经过base64编码的音频数据。</p>
+<h2 id="text">文本Text</h2>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/text?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>与<code>tag</code>缺一不可。该接口返回指定<code>run</code>下<code>tag={tag}</code>的文本信息，</p>
+<p>例如<code>api/text?run=.&amp;tag=custom_tag</code>表示访问<code>tag</code>为<code>custom_tag</code>的文本数据。</p>
+<p>该接口返回的数据格式如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;custom_tag&quot;</span><span class="p">:</span> 
+  <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1585807655.373738</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+     <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;\u8fd9\u662f\u7b2c0\u53e5\u8bdd&quot;</span><span class="p">},</span>
+                      <span class="err">...</span><span class="p">,</span> 
+    <span class="p">{</span><span class="nt">&quot;wall_time&quot;</span><span class="p">:</span> <span class="mf">1585807656.327519</span><span class="p">,</span> <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> 
+    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;\u8fd9\u662f\u7b2c99\u53e5\u8bdd&quot;</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>值得注意的是，该API返回的文本数据是经过URL编码后的文本</p>
+<h2 id="histogram">直方图Histogram</h2>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/histogram?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>请求直方图数据需要提供参数<code>run</code>和<code>tag</code>，其中<code>run</code>与<code>tag</code>缺一不可。</p>
+<p>例如<code>api/histogram?run=.&amp;tag=layer1/weights/summaries/histogram/histogram_summary</code>表示访问
+<code>tag</code>为<code>layer1/weights/summaries/histogram/histogram_summary</code>的直方图数据</p>
+<p>该接口返回的数据样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;histogram_tag&quot;</span><span class="p">:</span> 
+  <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1587176317.1721938</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.297224044799805</span><span class="p">,</span> 
+      <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.17657413482666015</span><span class="p">,</span> <span class="mf">2801825.0</span><span class="p">],</span> 
+                <span class="err">...</span>
+      <span class="p">[</span><span class="mf">5.120649909973144</span><span class="p">,</span> <span class="mf">5.297224044799805</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]]</span>
+    <span class="p">],</span>
+                      <span class="err">...</span>
+    <span class="p">[</span><span class="mf">1587176425.348953</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.3502936363220215</span><span class="p">,</span> 
+      <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2116764545440674</span><span class="p">,</span> <span class="mf">3229943.0</span><span class="p">],</span>
+                <span class="err">...</span>
+      <span class="p">[</span><span class="mf">6.1386171817779545</span><span class="p">,</span> <span class="mf">6.3502936363220215</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其格式为
+<div class="highlight"><pre><span></span><code>[
+  wall_time, step, min, max, 
+  [[left, right, num],
+      ...
+  [left, right, num]]
+]
+</code></pre></div></p>
+<h2 id="distribution">分布图Distribution</h2>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/distribution?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>请求分布图数据需要提供参数<code>run</code>和<code>tag</code>，其中<code>run</code>与<code>tag</code>缺一不可。</p>
+<p>例如<code>api/distribution?run=.&amp;tag=layer1/weights/summaries/histogram/histogram_summary</code>表示访问
+<code>tag</code>为<code>layer1/weights/summaries/histogram/histogram_summary</code>的分布图数据</p>
+<p>该接口返回的数据样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;distribution_tag&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1587176310.3070214</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mi">668</span><span class="p">,</span> <span class="mf">0.020253705367086237</span><span class="p">],</span><span class="err">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mf">4.971314430236816</span><span class="p">]]],</span>
+                              <span class="err">...</span><span class="p">,</span>
+    <span class="p">[</span><span class="mf">1587176419.1604998</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span>
+      <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mi">668</span><span class="p">,</span> <span class="mf">0.021192153914175192</span><span class="p">],</span><span class="err">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mf">6.3502936363220215</span><span class="p">]]]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其格式为</p>
+<div class="highlight"><pre><span></span><code>[
+  wall_time, step,
+  [[precentage, value],...,[precentage, value]]
+]
+</code></pre></div>
+<p>其中<code>precentage</code>取值分别为0, 668, 1587, 3085, 5000, 6915, 8413, 9332, 10000 对应标准正态分布的百分位数。</p>
+<h2 id="embeddding">高维数据Embeddding</h2>
+<p>高维数据，由于降维过程较为费时，数据首先在后端进行处理，然后返回降维后的数据。</p>
+<p>首先请求某一<code>tag</code>对应的<code>step</code>和张量维度<code>shape</code></p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>/api/projector?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>缺一不可，该API返回数据样例如下：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;embedding_tag&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="kc">n</span><span class="p">],</span>
+  <span class="nt">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">n</span><span class="p">,</span> <span class="err">m</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>请求得到该<code>tag</code>下embedding数据的所有<code>step</code>和维度信息<code>shape</code>后，接下来可以请求获取降维后的数据和原始标签</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/projector_data?run={run}&amp;tag={tag}&amp;step={step}&amp;method={method}&amp;dims={dims}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>、<code>step</code>、<code>method</code>缺一不可，<code>method</code>为降维方法可以从<code>pca, tsne</code>中任选其一，<code>dims</code>默认为3。</p>
+<p>例如<code>api/projector_data?run=train&amp;tag=outputs&amp;step=0&amp;method=pca&amp;dims=3</code>表示访问
+<code>run</code>为<code>train</code>下的<code>tag</code>为<code>outputs</code>的张量降维数据，其中使用的降维方法是<code>pca</code>，降维维数是3</p>
+<p>该API返回数据样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;0&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">//</span> <span class="err">降维后的数据</span>
+    <span class="p">[[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+     <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+     <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+                              <span class="err">...</span>
+     <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">]],</span>
+    <span class="err">//</span> <span class="err">label信息</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="err">...</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>最后还可以请求某一张量对应的训练集中样本的信息</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/projector_sample?run={run}&amp;tag={tag}&amp;index={index}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>、<code>index</code>缺一不可，参数<code>index</code>对应<code>api/projector_data</code>接口中的<code>step</code>。</p>
+<p>该API返回该张量对应训练集中样本的信息，其类型可以是图片，音频，文本。返回的图片，音频是base64编码的，
+而文本是经过URL编码后的。</p>
+<h2 id="exception">异常Exception</h2>
+<p>异常数据的请求首先需要得到指定<code>run</code>和<code>tag</code>下所有的<code>step</code>信息</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>/api/exception?run={run}&amp;tag={tag}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>缺一不可。</p>
+<p>例如<code>/api/exception?run=train&amp;tag=layer1/weights/Variable:0</code>表示访问
+<code>run</code>为<code>train</code>下的<code>tag</code>为<code>layer1/weights/Variable:0</code>的异常数据。</p>
+<p>该接口返回异常数据包含的所有<code>step</code>，样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;layer1/weights/Variable:0&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span><span class="kc">n</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>获得到<code>step</code>信息后，可以请求指定<code>run</code>，<code>tag</code>和<code>step</code>对应张量平铺后的异常数据</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/exception_data?run={run}&amp;tag={tag}&amp;step={step}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>、<code>step</code>缺一不可。</p>
+<p>例如<code>api/exception_data?run=train&amp;tag=layer1/weights/Variable:0&amp;step=0</code>表示访问<code>run</code>为<code>train</code>下的
+<code>tag</code>为<code>layer1/weights/Variable:0</code>且<code>step</code>为0时的数据。</p>
+<p>该API返回数据样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;0&quot;</span><span class="p">:[</span> 
+        <span class="p">[</span><span class="err">c</span><span class="mi">1</span><span class="p">,</span><span class="err">c</span><span class="mi">2</span><span class="p">],</span>  <span class="err">//</span> <span class="err">平铺前的数据维度大小(长度不定)</span>
+        <span class="err">mi</span><span class="kc">n</span><span class="p">,</span>      <span class="err">//</span> <span class="err">张量中的最小值</span>
+        <span class="err">max</span><span class="p">,</span>      <span class="err">//</span> <span class="err">张量中的最大值</span>
+        <span class="err">mea</span><span class="kc">n</span><span class="p">,</span>     <span class="err">//</span> <span class="err">张量的平均值</span>
+        <span class="p">[[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">],</span>
+                                  <span class="err">...</span>
+        <span class="p">[</span><span class="mf">-1.5627723114617857</span><span class="p">,</span> <span class="mf">-3.9668523435955056</span><span class="p">,</span> <span class="mf">-0.18872563897943656</span><span class="p">]]</span>
+      <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>进一步，获得<code>step</code>信息后，可以请求指定<code>run</code>，<code>tag</code>和<code>step</code>对应的异常数据直方图</p>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<div class="highlight"><pre><span></span><code>api/exception_hist?run={run}&amp;tag={tag}&amp;step={step}
+</code></pre></div>
+</div>
+<p>其中<code>run</code>、<code>tag</code>、<code>step</code>缺一不可。</p>
+<p>例如<code>api/exception_hist?run=train&amp;tag=layer1/weights/Variable:0&amp;step=0</code>表示访问<code>run</code>为<code>train</code>下的
+<code>tag</code>为<code>layer1/weights/Variable:0</code>且<code>step</code>为0时的数据。</p>
+<p>该API返回格式如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;0&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+      <span class="err">mi</span><span class="kc">n</span><span class="p">,</span>
+      <span class="err">max</span><span class="p">,</span>
+      <span class="p">[[</span><span class="err">le</span><span class="kc">ft</span><span class="p">,</span> <span class="err">righ</span><span class="kc">t</span><span class="p">,</span> <span class="err">cou</span><span class="kc">nt</span><span class="p">],</span>
+      <span class="p">[</span><span class="err">le</span><span class="kc">ft</span><span class="p">,</span> <span class="err">righ</span><span class="kc">t</span><span class="p">,</span> <span class="err">cou</span><span class="kc">nt</span><span class="p">],</span>
+              <span class="err">...</span>
+      <span class="p">[</span><span class="err">le</span><span class="kc">ft</span><span class="p">,</span> <span class="err">righ</span><span class="kc">t</span><span class="p">,</span> <span class="err">cou</span><span class="kc">nt</span><span class="p">]]</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="hyperparam">超参数Hyperparam</h2>
+<div class="admonition 资源访问路径">
+<p class="admonition-title">资源访问路径</p>
+<p><code>`
+api/hyperparm?run={run}</code></p>
+</div>
+<p>由于每次训练只可能产生一组超参数，在超参数的访问中，只需指定参数<code>run</code>即可获得相应的超参数数据。</p>
+<p>例如<code>api/hyperparm?run=hparams</code>表示访问<code>run</code>为<code>hparams</code>下的超参数数据，样例如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hparamsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span><span class="nt">&quot;3df0d7cf35bec5a33c9fe551db732c24df204d7886b226c5a41cce285d0d4fd5&quot;</span><span class="p">:</span> 
+    <span class="p">{</span>
+      <span class="nt">&quot;hparams&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;num_units&quot;</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">},</span> 
+          <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;optimizer&quot;</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;sgd&quot;</span><span class="p">},</span> 
+          <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dropout&quot;</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}</span>
+        <span class="p">],</span> 
+        <span class="nt">&quot;start_time_secs&quot;</span><span class="p">:</span> <span class="mf">1589421877.1109092</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">],</span> <span class="err">//</span> <span class="err">超参数信息，可能有多个</span>
+ <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> 
+     <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8216999769210815</span><span class="p">,</span> <span class="mf">0.8241999745368958</span><span class="p">,</span> 
+               <span class="mf">0.7746999859809875</span><span class="p">,</span> <span class="mf">0.765999972820282</span><span class="p">,</span> 
+               <span class="mf">0.8411999940872192</span><span class="p">,</span> <span class="mf">0.8307999968528748</span><span class="p">,</span> 
+               <span class="mf">0.7940999865531921</span><span class="p">,</span> <span class="mf">0.7904999852180481</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span> <span class="err">//超参数的量度，可能有多个。适用于所有的超参数信息</span>
+</code></pre></div>
+<p>该API返回的数据格式如下</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hparamsInfo&quot;</span><span class="p">:</span> 
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;groupid_1&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;hparams&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">超参数</span><span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="err">数据</span><span class="mi">1</span><span class="p">},</span> <span class="err">...</span><span class="p">,</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">超参数</span><span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="err">数据</span><span class="mi">2</span><span class="p">}],</span> <span class="err">//</span> <span class="err">多个超参数的名字与值</span>
+        <span class="nt">&quot;start_time_secs&quot;</span><span class="p">:</span> <span class="err">开始时间</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">,</span><span class="err">...</span><span class="p">,</span> 
+    <span class="p">{</span>
+      <span class="nt">&quot;groupid_n&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;hparams&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">超参数</span><span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="err">数据</span><span class="mi">1</span><span class="p">},</span> <span class="err">...</span><span class="p">,</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">超参数</span><span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="err">数据</span><span class="mi">2</span><span class="p">}],</span> 
+        <span class="nt">&quot;start_time_secs&quot;</span><span class="p">:</span> <span class="err">开始时间</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span> <span class="err">//</span> <span class="err">超参数信息，可能有多个</span>
+ <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="err">量度</span><span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span> <span class="err">值</span><span class="mi">2</span><span class="p">,</span> <span class="err">....</span><span class="p">,</span> <span class="err">值</span><span class="kc">n</span><span class="p">]}</span>
+   <span class="p">,</span><span class="err">...</span><span class="p">,</span> 
+   <span class="p">{</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="err">量度</span><span class="kc">n</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span> <span class="err">值</span><span class="mi">2</span><span class="p">,</span> <span class="err">....</span><span class="p">,</span> <span class="err">值</span><span class="kc">n</span><span class="p">]}</span>
+  <span class="p">]</span> <span class="err">//</span> <span class="err">超参数的量度，可能有多个。适用于所有的超参数信息</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               

@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -541,10 +546,49 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          标量数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         标量数据
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -755,6 +799,45 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -765,9 +848,41 @@
                   </a>
                 
                 
-                  <h1>标量数据</h1>
-                
-                
+                <h1 id="_1">标量数据使用教程</h1>
+<h2 id="_2">模块简介</h2>
+<p>标量数据模块用于展示模型训练过程中所产生的一些标量数据，包括训练loss，模型accuracy，网络每层的bias和weight等。用户可以在统计图上观察标量数据随训练过程的变化情况，底部的统计信息可以显示用户鼠标所选点的详细信息，同时可以选择全局放大或局部放大来深入研究。右侧为控制面板，用户可以更改统计图曲线的平滑程度以及数据的统计方式。用户也可以通过选取多张统计图进行合并研究，点击还原按钮恢复多张统计图。</p>
+<h2 id="_3">模块功能</h2>
+<p>1.显示训练标量数据</p>
+<p>训练loss，模型accuracy，网络每层的bias和weight等标量数据</p>
+<p><img alt="func1.1" src="../images/scalar/func1_1.png" />
+<img alt="func1.2" src="../images/scalar/func1_2.png" /></p>
+<p>2.显示所选点信息</p>
+<p>鼠标可在曲线上移动，底部显示所选点信息</p>
+<p><img alt="func2.1" src="../images/scalar/func2_1.png" /></p>
+<p>3.全局放大与局部放大</p>
+<p>用户点击全局放大按钮，得到全局放大图。在全局放大状态下，点击全局缩小按钮，恢复原图</p>
+<p><img alt="func3.1" src="../images/scalar/func3_1.png" />
+<img alt="func3.2" src="../images/scalar/func3_2.png" />
+<img alt="func3.3" src="../images/scalar/func3_3.png" /></p>
+<p>用户可按住鼠标左键圈选区域，得到局部放大图，双击左键恢复原图。
+<img alt="func3.4" src="../images/scalar/func3_4.png" />
+<img alt="func3.5" src="../images/scalar/func3_5.png" /></p>
+<p>4.曲线平滑度设置</p>
+<p>用户可在数据控制面板调整曲线的平滑度，范围为0-0.9，0为原曲线，0.9为最大光滑曲线。
+<img alt="func4.1" src="../images/scalar/func4_1.png" />
+<img alt="func4.2" src="../images/scalar/func4_2.png" /></p>
+<p>5.y轴数据显示
+用户可选择对数据进行取对数处理再显示。</p>
+<p><img alt="func5.1" src="../images/scalar/func5_1.png" />
+<img alt="func5.2" src="../images/scalar/func5_2.png" /></p>
+<p>6.数据图合并与还原</p>
+<p>用户可以勾选多张数据图，点击合并按钮，生成合并数据图。点击还原按钮，恢复多张原图。
+<img alt="func6.1" src="../images/scalar/func6_1.png" />
+<img alt="func6.2" src="../images/scalar/func6_2.png" /></p>
+<p>7.用户定制</p>
+<p>用户可勾选标量数据里的多张数据图，点击用户定制按钮，跳转到用户定制界面进行分析。
+<img alt="func7.1" src="../images/scalar/func7_1.png" />
+<img alt="func7.2" src="../images/scalar/func7_2.png" /></p>
                 
               
               
