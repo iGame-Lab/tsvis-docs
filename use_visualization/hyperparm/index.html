@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -589,10 +594,49 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          超参分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         超参分析
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -755,6 +799,45 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模块简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模块功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -765,9 +848,22 @@
                   </a>
                 
                 
-                  <h1>超参分析</h1>
-                
-                
+                <h1 id="_1">模型结构使用教程</h1>
+<h2 id="_2">模块简介</h2>
+<p>对模型训练中的超参数进行可视化分析。本模块包含平行坐标系和表格。平行坐标系显示不同超参数组合下的趋势；表格显示每条具体数据。</p>
+<h2 id="_3">模块功能</h2>
+<ol>
+<li>通过鼠标选取坐标轴上部分数据</li>
+</ol>
+<p><img alt="func1.1" src="../images/hyperparm/pic1.png" /></p>
+<ol>
+<li>修改颜色映射数据</li>
+</ol>
+<p><img alt="func1.1" src="../images/hyperparm/pic2.png" /></p>
+<ol>
+<li>选择不同坐标轴便于观察数据</li>
+</ol>
+<p><img alt="func1.1" src="../images/hyperparm/pic3.png" /></p>
                 
               
               
