@@ -220,7 +220,7 @@
   
     <li class="md-tabs__item">
       <a href="../../use_visualization/graph/" class="md-tabs__link">
-        使用可视化模块
+        使用可视化组件
       </a>
     </li>
   
@@ -369,9 +369,59 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          快速上手
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         快速上手
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist" class="md-nav__link">
+    从导出识别手写数字Mnist可视化日志开始
+  </a>
+  
+    <nav class="md-nav" aria-label="从导出识别手写数字Mnist可视化日志开始">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    搭建网络模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    导出可视化日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -523,13 +573,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       <label class="md-nav__link" for="__nav_4">
-        使用可视化模块
+        使用可视化组件
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="使用可视化模块" data-md-level="1">
+      <nav class="md-nav" aria-label="使用可视化组件" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          使用可视化模块
+          使用可视化组件
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -774,6 +824,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist" class="md-nav__link">
+    从导出识别手写数字Mnist可视化日志开始
+  </a>
+  
+    <nav class="md-nav" aria-label="从导出识别手写数字Mnist可视化日志开始">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    搭建网络模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    导出可视化日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -790,6 +875,124 @@
                 
                 
                 <h1 id="_1">快速上手</h1>
+<p>在本节中，你将了解到如何快速使用zjvis，帮助你完成zjvis中的第一个"Hello World"。在内容安排上，
+本节先介绍如何在Python脚本中写入可视化日志，接着展示了如何加载日志并进行可视化。</p>
+<h2 id="mnist">从导出识别手写数字Mnist可视化日志开始</h2>
+<p>为了方便大多数深度学习用户接受，在本文中我们选择了使用最广泛的Pytorch框架作为示例。现在让我们从最简单的手写数字识别Mnist开始。</p>
+<h3 id="_2">搭建网络模型</h3>
+<p>这里我们搭建了一个较为简单的卷积神经网络模型</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="nn">oneflow.summary_writer</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+
+<span class="k">class</span> <span class="nc">Minist</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Minist</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">7</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span> <span class="o">*</span> <span class="mi">7</span><span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</code></pre></div>
+<h3 id="_3">导出可视化日志</h3>
+<p>为了导出可视化日志我们在模型训练的过程中调用写日志API接口</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">batchSize</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">lrate</span> <span class="o">=</span> <span class="mf">1e-3</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+                                    <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">])])</span>
+
+    <span class="c1"># create dataset and loader</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data/MNIST&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batchSize</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">num_workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># get test samples for embedding</span>
+    <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">))</span>
+
+
+    <span class="n">net</span> <span class="o">=</span> <span class="n">Minist</span><span class="p">()</span>
+    <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lrate</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+
+    <span class="c1"># add graph， hparams, embedding_sample,</span>
+    <span class="c1"># the tag of embedding and embedding_sample must be same.</span>
+    <span class="n">summarywriter</span> <span class="o">=</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="s1">&#39;./logs/torch/&#39;</span><span class="p">)</span>
+    <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="p">(</span><span class="n">test_x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding_sample</span><span class="p">(</span><span class="s1">&#39;minist&#39;</span><span class="p">,</span> <span class="n">test_x</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span>
+    <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_hparams</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;mnist&#39;</span><span class="p">,</span>
+                              <span class="n">hparam_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lrate&#39;</span><span class="p">:</span> <span class="n">lrate</span><span class="p">,</span>
+                                           <span class="s1">&#39;batchSize&#39;</span><span class="p">:</span> <span class="n">batchSize</span><span class="p">,</span>
+                                           <span class="s1">&#39;epoch&#39;</span><span class="p">:</span><span class="n">epochs</span><span class="p">},</span>
+                              <span class="n">metric_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">})</span>
+
+    <span class="n">train_accs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">train_loss</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">train_accs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="c1"># data = [inputs, labels]</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+            <span class="c1"># clear the gradients in previous batch</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+            <span class="c1"># forward + backward + optimize</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="c1"># loss and accuracy</span>
+            <span class="n">train_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="n">correct</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">labels</span>
+            <span class="n">train_accs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">correct</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%d</span><span class="s1">,</span><span class="si">%5d</span><span class="s1">] loss :</span><span class="si">%.3f</span><span class="s1"> acc :</span><span class="si">%.3f</span><span class="s1">&#39;</span>
+                      <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span><span class="nb">sum</span><span class="p">(</span><span class="n">train_accs</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="mi">32</span><span class="p">)</span> <span class="p">))</span>
+                <span class="n">train_loss</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                <span class="n">train_accs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+
+            <span class="c1"># add scalar, image, histogram, exception, embedding</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">step</span> <span class="o">=</span>  <span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span><span class="o">*</span><span class="n">epoch</span>
+                <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">step</span><span class="p">)</span>
+
+                <span class="n">image</span> <span class="o">=</span>  <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+
+                <span class="n">weight</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">conv1</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_histogram</span><span class="p">(</span><span class="s1">&#39;conv1_w&#39;</span><span class="p">,</span><span class="n">weight</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+
+                <span class="n">grad</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">conv1</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_exception</span><span class="p">(</span><span class="s1">&#39;conv1_w_grad&#39;</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+
+                <span class="n">test_out</span> <span class="o">=</span>  <span class="n">net</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">test_x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+                <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="s1">&#39;minist&#39;</span><span class="p">,</span><span class="n">test_out</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">test_y</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">step</span><span class="p">)</span>
+</code></pre></div>
+<p>在上面的代码中，我们添加了除异常检测<code>exception</code>外的所有类型，导出的日志将会保存在当前脚本目录<code>./logs/torch/</code>文件夹下。
+上述例子的完整代码可以在<a href="https://github.com/iGame-Lab/zjvis/blob/master/zjvis/oneflow/demo/demo_pytorch.py">这里</a>获得。</p>
+<p><a href="../run_visual/">下一节</a>我们将介绍如何加载导出的日志并在浏览器查看可视化</p>
                 
               
               
