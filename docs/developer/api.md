@@ -388,7 +388,7 @@ zjvis中支持两种方式的模型结构，一种是包含计算节点的计算
     api/projector_sample?run={run}&tag={tag}&index={index}
     ```
 
-其中`run`、`tag`、`index`缺一不可，参数`index`对应`api/projector_data`接口中的`step`。
+其中`run`、`tag`、`index`缺一不可，参数`index`表示请求第几个点对应的样本。
 
 该API返回该张量对应训练集中样本的信息，其类型可以是图片，音频，文本。返回的图片，音频是base64编码的，
 而文本是经过URL编码后的。
@@ -416,7 +416,7 @@ zjvis中支持两种方式的模型结构，一种是包含计算节点的计算
 }
 ```
 
-获得到`step`信息后，可以请求指定`run`，`tag`和`step`对应张量平铺后的异常数据
+获得到`step`信息后，可以请求指定`run`，`tag`和`step`对应张量平铺后的异常数据（热力图）
 
 !!! 资源访问路径
     

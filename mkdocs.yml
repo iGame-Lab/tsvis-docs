@@ -51,7 +51,7 @@ nav:
       - 超参数: write_log/write_hyperparm.md
       - 异常检测数据: write_log/write_exception.md
 
-    - 使用可视化模块:
+    - 使用可视化组件:
       - 模型结构: use_visualization/graph.md
       - 标量数据: use_visualization/scalar.md
       - 媒体数据: use_visualization/media.md
