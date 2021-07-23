@@ -24,4 +24,4 @@ Quit the server with CTRL-BREAK.
 
 ![](images/start_and_visit_frontend.png){ .img-fluid }
 
-关于更多可视化组件的使用和交互，请参考[使用可视化组件](use_visualization/graph)章节
+关于更多可视化组件的使用和交互，请参考[使用可视化组件](../use_visualization/graph)章节
