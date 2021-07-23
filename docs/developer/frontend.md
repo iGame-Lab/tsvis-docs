@@ -90,7 +90,7 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 (condition && condition && ...) || (condition && condition && ...) || ...
 ```
 
-3.将reserve栈顶tag为0的数组全部删除，同时在delByCondition栈中删除相同数量的栈顶元素，复原相关节点和边的样式。然后取出reserve栈顶的数组，遍历数组获取节点出入度，使用eval执行步骤二中的字符串判断节点是否符合条件，符合条件的节点加入一个新建数组，将该新建数组加入到栈delByCondition，构建新的节点状态数组设置tag为0并推入栈reserve，隐藏节点和相关边
+3.将reserve栈顶tag为0的数组全部删除，同时在delByCondition栈中删除相同数量的栈顶元素，复原相关节点和边的样式。然后取出reserve栈顶的数组，遍历数组获取节点出入度，使用eval执行步骤二中的字符串判断节点是否符合条件，符合条件的节点加入一个新建数组，将该新建数组加入到栈delByCondition，构建新的节点状态数组设置tag为0（表示未重绘）并推入栈reserve，隐藏节点和相关边
 
 #### 布局
 
