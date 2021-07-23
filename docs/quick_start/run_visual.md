@@ -22,6 +22,6 @@ Quit the server with CTRL-BREAK.
 
 默认情况下，可视化服务会启动在`http://127.0.0.1:9898`，打开浏览器访问即可查看可视化内容
 
-![](image/start_and_visit_frontend.png){ .img-fluid }
+![](images/start_and_visit_frontend.png){ .img-fluid }
 
 关于更多可视化组件的使用和交互，请参考[使用可视化组件](use_visualization/graph)章节
