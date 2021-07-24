@@ -175,3 +175,105 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 通过维护 option 这个结构体实现可视化
 
 
+
+// =================================================================================
+
+## 超参数分析
+
+超参数分析首先请求后端数据，维护一个state数据。
+
+### 超参数分析数据
+
+超参数分析state数据结构如下
+
+```json
+state = {
+  categoryInfo: [], 
+  allData: '', 
+  key: '', 
+  items: [], 
+  selected: '',
+  focusData: [],
+  globalSelectedDatas: '',
+  axisType: {},
+  globalChange: 1,
+  hypEmpty: false,
+  errorMessage: '',
+  mainParams: [],
+  axisParams: [] 
+}
+```
+
+### 超参数分析平行坐标系绘制
+
+平行坐标系绘制方法主要使用d3.js
+
+具体步骤如下：
+
+1. 数轴绘制
+
+   ```js
+   dimensions.forEach(function(d) {
+           var vals = data.map(function(p) {
+             return p[d]
+           })
+           if (vals.every(quantP)) { //不同数据类型绘制不同的坐标系
+            ...
+           } else {
+             ...
+         })
+   ```
+
+2. 曲线绘制
+
+   ```js
+    const foreground = svg.append('g')
+           .attr('class', 'foreground')
+           .selectAll('path')
+           .data(data)
+           .enter().append('path')
+           .attr('d', path)
+           .attr('stroke', function(d) {
+             return colorMap(d[colorItem])
+           }).attr('fill', 'none')
+           .on('mouseover', function(d, i) {
+            ...
+           })
+           .on('mouseout', function(d, i) {
+             ...
+           })
+   ```
+
+   
+
+3. 坐标轴操作绑定
+
+   ```js
+   g2.append('g')
+       .attr('class', 'brush')
+       .each(function(d) {
+       if (_this.items.indexOf(d) <= -1) {
+           d3.select(this).call(y[d].brush = d3.brushY().extent([
+               [-4, 0],
+               [4, height]
+           ]).on('brush start', brushStart).on('brush', goBrush).on('brush',  brushParallel).on('end',brushEndOrdinal))
+       } else {
+           d3.select(this).call(y[d].brush = d3.brushY().extent([
+               [-4, 0],
+               [4, height]
+           ]).on('brush start', brushStart).on('brush', goBrush).on('brush', brushParallelChart).on('end', brushEnd))
+       }
+   })
+    
+   ```
+
+   
+
+### 超参数表格绘制
+
+超参数表格绘制使用了element-ui组件
+
+1. 数据绑定 & 更新
+
+   通过维护 data 数据进行可视化
+
