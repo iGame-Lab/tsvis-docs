@@ -767,7 +767,39 @@
                 
                   <h1>模型结构</h1>
                 
-                
+                <p>可视化主流深度学习框架的网络模型，如<strong>tensorflow</strong>，<strong>pytorch</strong>,  <strong>oneflow</strong>等。</p>
+<p>1.主流神经网络模型</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
+                        <span class="n">input_to_model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s1">&#39;pytorch&#39;</span><span class="p">,</span>
+                        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加神经网络的图结构到日志，支持tensorflow，pytorch</span>
+<span class="sd">    Args:</span>
+<span class="sd">        model: 神经网络模型, torch.nn.Module、 tf.Session().graph， oneflow模型请通过onnx或者json格式导出</span>
+<span class="sd">        input_to_model: 元组, 一组用于模型测试的输入</span>
+<span class="sd">        model_type: 字符串，模型的类型为‘pytorch’ 或 &#39;tensorflow&#39;</span>
+<span class="sd">        verbose: 布尔值，pytorch模型是否输出到控制台</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+2.onnx网络模型</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_onnx_graph</span><span class="p">(</span><span class="n">onnx_model_file</span><span class="err">：</span><span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加onnx模型到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        onnx_model_file: 字符串，onnx模型对应的文件路径</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>3.json网络模型 （oneflow）</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_json_graph</span><span class="p">(</span><span class="n">model_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                             <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        该功能需要神经网络框架的支持，首先使用内部函数对网络模型的结构进行序列化，然后将序列化的字符串写入到json文件</span>
+<span class="sd">    Args:</span>
+<span class="sd">        model_str: 字符串，模型的序列化字符串</span>
+<span class="sd">        name: 字符串，json文件名</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               

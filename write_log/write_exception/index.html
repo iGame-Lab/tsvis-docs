@@ -767,7 +767,18 @@
                 
                   <h1>异常检测数据</h1>
                 
-                
+                <p>可视化各网络层的权重，偏置，梯度，输出的异常情况。主要以直方图，箱线图，颜色映射矩阵等方式进行展示</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_exception</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                            <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加监测的异常数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，待监测的异常数据的标识</span>
+<span class="sd">        tensor: 数组，待监测的异常数据</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               

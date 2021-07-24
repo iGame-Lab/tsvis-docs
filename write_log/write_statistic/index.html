@@ -767,7 +767,20 @@
                 
                   <h1>统计分析数据</h1>
                 
-                
+                <p>可视化数据的分布情况，如直方图，分布图。其中分布图由直方图转化得到</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_histogram</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                            <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">max_bins</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加直方图数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，直方图的标识</span>
+<span class="sd">        tensor: 数组，直方图的原始数据</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">        max_bins: 整数，可选参数，直方图划分的区间个数</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               

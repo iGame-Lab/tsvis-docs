@@ -767,7 +767,72 @@
                 
                   <h1>媒体数据</h1>
                 
-                
+                <p>可视化神经网络中的样本数据，如图片，音频，视频，文本等。</p>
+<p><strong>图像</strong></p>
+<p>1.单张图片</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                        <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加单张图像数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，图像的标识</span>
+<span class="sd">        tensor: 数组，图像数据，&#39;uint8&#39; 或 &#39;float&#39; 类型的数据，大小为(H,W) 或 (H,W,C), 其中C为1,2,3,4</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>2.多张图片</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_images</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">tensors</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                         <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加多个图像数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串, 图像的标识, 导出过程中将自动转化为tag_1, tag_2, ... , tag_k</span>
+<span class="sd">        tensors: 数组类型，图像数据，&#39;uint8&#39; 或 &#39;float&#39; 类型的数据，大小为(K,H,W) 或 (K,H,W,C), 其中C为1,3,4</span>
+<span class="sd">        step: 可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p><strong>文本</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">text_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加文本数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，文本的标识</span>
+<span class="sd">        text_string: 字符串，文本字符串</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p><strong>音频</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_audio</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">audio_tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                        <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+                        <span class="n">sample_rate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加音频数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，音频的标识</span>
+<span class="sd">        audio_tensor: 数组，音频数据，大小为(L, C), 其中L为音频帧的长度，C为通道，通常C=1，2</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">        sample_rate: 整数，采样率 Hz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p><strong>视频</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_video</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">video_tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                        <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">fps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加视频数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，视频的标识</span>
+<span class="sd">        video_tensor: 数组，视频数据</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">        fps: 整数，可选参数，视频的帧率， 默认为4</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               

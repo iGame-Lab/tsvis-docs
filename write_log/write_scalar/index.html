@@ -767,7 +767,29 @@
                 
                   <h1>标量数据</h1>
                 
-                
+                <p>可视化标量数据随时间的变化趋势</p>
+<p>1.单个标量数据</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">scalar_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">numpy_compatible</span><span class="p">],</span>
+                         <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加单个标量数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，数据标识</span>
+<span class="sd">        scalar_value: 浮点数，标量的值</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>2.多个标量数据</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_scalars</span><span class="p">(</span><span class="n">tag_scalar_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">numpy_compatible</span><span class="p">]],</span>
+                          <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加一组标量数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag_scalar_dict: 字典，(标签, 标量值)</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               

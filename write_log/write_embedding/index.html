@@ -767,7 +767,33 @@
                 
                   <h1>降维分析数据</h1>
                 
-                
+                <p>可视化高维数据的聚类。以动画的形式显示样本数据在各网络层中产生的高维嵌入的聚类变化</p>
+<p>1.可视化的样本数据，只需在训练的开始或结束添加一次即可，tag应与产生的高维嵌入数据的tag保持一致</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding_sample</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                   <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                                   <span class="n">sample_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加降维处理的高维数据对应的样本到日志，以便查看降维后数据点对应的原始样本</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，高维数据样本的标识，应与高维数据保持一致</span>
+<span class="sd">        tensor: 数组，高维数据的样本，数据类型，大小为[N,*]</span>
+<span class="sd">        sample_type: 字符串，样本数据的类型，支持‘image’,&#39;text&#39;,&#39;audio&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>2.样本数据产生的高维嵌入数据</p>
+<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
+                            <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">numpy_compatible</span><span class="p">]</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        添加降维处理的高维数据到日志</span>
+<span class="sd">    Args:</span>
+<span class="sd">        tag: 字符串，降维处理的高维数据的标识，应与高维数据的样本标识相同</span>
+<span class="sd">        tensor: 数组，高维数据的样本，大小为[N,*]</span>
+<span class="sd">        label: 数组，可选参数，高维数据对应的类别标签，大小为[N]</span>
+<span class="sd">        step: 整数，可选参数，记录数据的step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               
