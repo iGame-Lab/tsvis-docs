@@ -103,3 +103,75 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 #### 初始化
 
 6.清空reserve栈和delByCondition栈，重绘结构图
+
+
+
+// =================================================================================
+
+## 降维分析
+
+降维分析主要是对数据进行请求, 维护一个请求数据结构 curInfo  是当前模块的状态.
+
+### 降维分析数据
+
+降维分析请求数据结构如下
+
+```json
+//  curInfo
+  curInfo { // 当前所处于的信息节点
+    curTag: '', // 当前选定的tag信息
+    curStep: 0, // 当前所处于的step下标
+    curMapStep: 0, // 当前映射的step
+    curMethod: 'PCA', // 当前的查看方式
+    curDim: '3维', // 查看的维度
+    received: false // 当前的信息都被填充结束后改变
+  }
+```
+
+
+### 降维分析二维绘制
+
+降维分析二维视图绘制方法主要使用d3.js布局库
+
+具体步骤为：
+
+1. 数据绑定
+
+`vm.circleUpdate = gscatter.selectAll('circle').data(localData.data)`
+
+将绘制圆形svg绑定数据
+
+2. 动画绘制
+
+`vm.circleUpdate.merge(vm.circleEnter).transition().ease(d3.easeLinear).duration(1000)`
+
+以动画的方式实现数据的变化
+
+3. 颜色绑定
+
+维护一个颜色标签数组
+```
+  legendColor: [ // 颜色条因为很多地方都会用到直接放在这里
+    '#EF6F38',
+    '#EFDD79',
+    '#C5507A',
+    '#9359B0',
+    '#525C99',
+    '#47C1D6',
+    '#B5D4E8',
+    '#15746C',
+    '#81c19c',
+    '#A08983'
+  ]
+```
+
+
+### 降维分析三维绘制
+
+降维分析二维视图绘制方法主要使用echarts.js echarts-gl布局库
+
+1. 数据绑定 & 更新
+
+通过维护 option 这个结构体实现可视化
+
+
