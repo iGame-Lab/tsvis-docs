@@ -1,4 +1,4 @@
-可视化神经网络中的样本数据，如图片，音频，视频，文本等。
+可视化神经网络中的样本数据，如图片，音频，文本等。
 
   **图像**
 
@@ -61,22 +61,5 @@
           audio_tensor: 数组，音频数据，大小为(L, C), 其中L为音频帧的长度，C为通道，通常C=1，2
           step: 整数，可选参数，记录数据的step
           sample_rate: 整数，采样率 Hz
-      """
-  ```
-
-  **视频**
-
-  ```python
-  summarywriter.add_video(tag: str,
-                          video_tensor: numpy_compatible,
-                          step: Optional[int] = None,
-                          fps: Optional[Union[int, float]] = 4):
-      """
-          添加视频数据到日志
-      Args:
-          tag: 字符串，视频的标识
-          video_tensor: 数组，视频数据
-          step: 整数，可选参数，记录数据的step
-          fps: 整数，可选参数，视频的帧率， 默认为4
       """
   ```
