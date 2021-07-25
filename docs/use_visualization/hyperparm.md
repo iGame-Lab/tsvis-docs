@@ -6,12 +6,13 @@
 
 1. 通过鼠标选取坐标轴上部分数据
 
-![func1.1](./images/hyperparm/pic1.png)
+![](./images/hyperparm/data_select.png){ .img-fluid }
 
 2. 修改颜色映射数据
 
-![func1.1](./images/hyperparm/pic2.png)
+![](./images/hyperparm/map_controll.png){ .img-fluid }
+
 
 3. 选择不同坐标轴便于观察数据
 
-![func1.1](./images/hyperparm/pic3.png)
+![](./images/hyperparm/axis_controll.png){ .img-fluid }
