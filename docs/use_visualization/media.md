@@ -4,27 +4,19 @@
 ## 模块功能
 1.音频文件
 
-
 文件信息标识：
-
 
 RUN:训练模型名称
 
-
 TAG:媒体数据所属类别
-
 
 STEP:迭代步数
 
-
 WALL_TIME:训练绝对时间
-
 
 LABEL:音频信息
 
-
-![func1](./images/media/func1.png){ .img-fluid }
-
+![media_audio](./images/media/media_audio.png){ .img-fluid }
 
 2.图像文件
 
@@ -36,29 +28,28 @@ TAG:媒体数据所属类别
 
 STEP:迭代步数
 
-![func2](./images/media/func2.png){ .img-fluid }
+![media_image](./images/media/media_image.png){ .img-fluid }
+
+用户可单击图像，查看原图，可进行放大/缩小/复原/左旋/右旋操作。
+
+![media_image_select](./images/media/media_image_select.png){ .img-fluid }
 
 
 3.文本文件
 
 RUN:训练模型名称
 
-
 TAG:媒体数据所属类别
-
 
 STEP:迭代步数
 
 WALL_TIME:训练绝对时间
 
-
 VALUE:文本具体内容
 
-
-![func3](./images/media/func3.png){ .img-fluid }
-
+![media_image](./images/media/media_text.png){ .img-fluid }
 
 4.用户定制
 用户可勾选多种数据文件到用户定制页面进行分析。
-![func4_1](./images/media/func4_1.png){ .img-fluid }
-![func4_2](./images/media/func4_2.png){ .img-fluid }
+![media_user_select1](./images/media/media_user_select1.png){ .img-fluid }
+![media_user_select2](./images/media/media_user_select2.png){ .img-fluid }
