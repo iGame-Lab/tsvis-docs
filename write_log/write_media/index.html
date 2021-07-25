@@ -767,7 +767,7 @@
                 
                   <h1>媒体数据</h1>
                 
-                <p>可视化神经网络中的样本数据，如图片，音频，视频，文本等。</p>
+                <p>可视化神经网络中的样本数据，如图片，音频，文本等。</p>
 <p><strong>图像</strong></p>
 <p>1.单张图片</p>
 <div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -817,20 +817,6 @@
 <span class="sd">        audio_tensor: 数组，音频数据，大小为(L, C), 其中L为音频帧的长度，C为通道，通常C=1，2</span>
 <span class="sd">        step: 整数，可选参数，记录数据的step</span>
 <span class="sd">        sample_rate: 整数，采样率 Hz</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-</code></pre></div>
-<p><strong>视频</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_video</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                        <span class="n">video_tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
-                        <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                        <span class="n">fps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        添加视频数据到日志</span>
-<span class="sd">    Args:</span>
-<span class="sd">        tag: 字符串，视频的标识</span>
-<span class="sd">        video_tensor: 数组，视频数据</span>
-<span class="sd">        step: 整数，可选参数，记录数据的step</span>
-<span class="sd">        fps: 整数，可选参数，视频的帧率， 默认为4</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div>
                 
