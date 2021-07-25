@@ -5,21 +5,60 @@
 1.音频文件
 
 
-首先是对音频文件的一些信息标识，然后可以对文件进行播放，下载等操作。
-![func1](./images/media/func1.png)
+文件信息标识：
+
+
+RUN:训练模型名称
+
+
+TAG:媒体数据所属类别
+
+
+STEP:迭代步数
+
+
+WALL_TIME:训练绝对时间
+
+
+LABEL:音频信息
+
+
+![func1](./images/media/func1.png){ .img-fluid }
 
 
 2.图像文件
 
-![func2](./images/media/func2.png)
+RUN:训练模型名称
+
+
+TAG:媒体数据所属类别
+
+
+STEP:迭代步数
+
+![func2](./images/media/func2.png){ .img-fluid }
 
 
 3.文本文件
 
-![func3](./images/media/func3.png)
+RUN:训练模型名称
+
+
+TAG:媒体数据所属类别
+
+
+STEP:迭代步数
+
+WALL_TIME:训练绝对时间
+
+
+VALUE:文本具体内容
+
+
+![func3](./images/media/func3.png){ .img-fluid }
 
 
 4.用户定制
 用户可勾选多种数据文件到用户定制页面进行分析。
-![func4_1](./images/media/func4_1.png)
-![func4_2](./images/media/func4_2.png)
+![func4_1](./images/media/func4_1.png){ .img-fluid }
+![func4_2](./images/media/func4_2.png){ .img-fluid }

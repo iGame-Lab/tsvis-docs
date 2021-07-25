@@ -277,3 +277,30 @@ state = {
 
    通过维护 data 数据进行可视化
 
+
+
+// =================================================================================
+
+## 媒体数据分析
+
+媒体数据分析首先请求后端数据，维护一个state数据。
+
+### 媒体数据分析数据
+
+媒体数据state数据结构如下
+
+```json
+state = {
+  categoryInfo: '', 
+  detailData: '', 
+  clickState: false,
+  showrun: {},
+  totaltag: '',
+  freshInfo: {},
+  errorMessage: '',
+  showFlag: {
+    firstTime: true
+  }
+```
+
+
