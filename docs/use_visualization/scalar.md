@@ -13,14 +13,14 @@
 1.支持数据图[放大]、[还原]、[选中]
 
 
-![scalar_global_zoom](./images/scalar/scalar_global_zoom.png){ .img-fluid }
+![scalar_global_zoom](./images/scalar/scalar_global_zoom.png)
 
 
 
 2.支持选取局部区域放大，双击还原
 
 
-![scalar_local_zoom](./images/scalar/scalar_local_zoom.gif){ .img-fluid }
+![scalar_local_zoom](./images/scalar/scalar_local_zoom.gif)
 
 
 3.数据点Hover展示详细信息
@@ -34,13 +34,13 @@ step:迭代次数
 value:训练过程标量值
 
 
-![scalar_hover](./images/scalar/scalar_hover.png){ .img-fluid }
+![scalar_hover](./images/scalar/scalar_hover.png)
 
 
 4.控制面板
 
 
-![scalar_control_panel](./images/scalar/scalar_control_panel.png){ .img-fluid }
+![scalar_control_panel](./images/scalar/scalar_control_panel.png)
 
 
 4.1 曲线平滑度设置，以便更好的展现参数整体的变化趋势
@@ -49,7 +49,7 @@ value:训练过程标量值
 平滑度=0.7（实线）-平滑度=0（虚线）
 
 
-![scalar_smooth_setting](./images/scalar/scalar_smooth_setting.png){ .img-fluid }
+![scalar_smooth_setting](./images/scalar/scalar_smooth_setting.png)
 
 
 4.2 y轴坐标转化
@@ -58,8 +58,8 @@ value:训练过程标量值
 采用linear和log_linear两种显示方式
 
 
-![scalar_yaxis_setting1](./images/scalar/scalar_yaxis_setting1.png){ .img-fluid }
-![scalar_yaxis_setting2](./images/scalar/scalar_yaxis_setting2.png){ .img-fluid }
+![scalar_yaxis_setting1](./images/scalar/scalar_yaxis_setting1.png)
+![scalar_yaxis_setting2](./images/scalar/scalar_yaxis_setting2.png)
 
 
 
