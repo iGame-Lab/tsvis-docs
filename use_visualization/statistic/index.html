@@ -946,7 +946,7 @@
 <h2 id="_2">模块简介</h2>
 <p>模型训练过程中产生的张量数据，后端对其多个step的值分别进行统计分析，前端统计分析可视化模块可对统计后的数据进行可视化。</p>
 <p>本模块包括两种统计图：直方图和分布图。直方图是对每个step中该张量各值出现的次数进行统计；分布图是把数据转换到正态分布时的统计。</p>
-<p><img alt="" src="/statisticAll.png" /></p>
+<p><img alt="" class="img-fluid" src="../images/statistic/statisticAll.png" /></p>
 <h2 id="_3">模块功能介绍</h2>
 <h4 id="_4">直方图</h4>
 <h5 id="_5">单个直方图的基础功能</h5>
@@ -961,35 +961,33 @@
 <li>同时，其他 step 对应同一 value 值的点将会用黄色圆点标记出来</li>
 <li>每一直方图右上角有放大缩小按钮。右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</li>
 </ul>
-<p><img alt="" src="/histogramHover.png" /> <img alt="" src="/histogramInfo.png" /> <img alt="" src="/histogramHover2.png" /></p>
+<p><img alt="" src="../images/statistic/histogramHover.png" /> <img alt="" src="../images/statistic/histogramInfo.png" /> <img alt="" src="../images/statistic/histogramHover2.png" /></p>
 <h5 id="_6">直方图全局功能</h5>
 <ul>
 <li>直方图有两种模式：三维模式和二维模式。二维模式可以视为三维模式的正视图，操作基本同三维直方图，鼠标悬浮可以高亮选中的step数据，该step张量的统计信息会展示在右侧的控制面板中</li>
 </ul>
-<p><img alt="" src="/histogram3d.png" /> <img alt="" src="/histogram2d.png" /></p>
+<p><img alt="" src="../images/statistic/histogram3d.png" /> <img alt="" src="../images/statistic/histogram2d.png" /></p>
 <ul>
 <li>「控制面板」 — 「数据显示比率」：按百分比选择显示多少条 step 数据</li>
 </ul>
 <p>下面左图是100%的数据显示比率，数据很密；右图是20%的数据显示比率，数据比较稀疏</p>
-<p><img alt="" src="/histogramRate100.png" /> <img alt="" src="/histogramRate20.png" /></p>
+<p><img alt="" src="../images/statistic/histogramRate100.png" /> <img alt="" src="../images/statistic/histogramRate20.png" /></p>
 <ul>
 <li>「控制面板」— 「统计区间个数」：统计区间个数越大，区间范围越小，越接近真实值</li>
 </ul>
 <p>下图中左图的统计区间个数是20，曲线比较平滑；右图的统计区间个数是100个，分段更多</p>
-<p><img alt="" src="/histogramBins20.png" /> <img alt="" src="/histogramBins100.png" /></p>
+<p><img alt="" src="../images/statistic/histogramBins20.png" /> <img alt="" src="../images/statistic/histogramBins100.png" /></p>
 <h5 id="_7">样式特点</h5>
 <p>本页面提供了11种配色，可以为每个run赋予不同的颜色，直方图和分布图都有这种样式特点</p>
-<p><img alt="" src="/histogramColor1.png" /> <img alt="" src="/histogramColor2.png" /> <img alt="" src="/histogramColor3.png" /> <img alt="" src="/histogramColor7.png" /></p>
+<p><img alt="" src="../images/statistic/histogramColor1.png" /> <img alt="" src="../images/statistic/histogramColor2.png" /> <img alt="" src="../images/statistic/histogramColor3.png" /> <img alt="" src="../images/statistic/histogramColor7.png" /></p>
 <h4 id="_8">分布图</h4>
 <ul>
 <li>分布图用于展示转换为标准正态分布下的数据分布，数据转换成标准正态分布后的分布图，从上到下一共九条线，分别为：最大值、1.5σ、1.0σ、0.5σ、0、-0.5σ、-1.0σ、-1.5σ、最小值</li>
 </ul>
-<p><img alt="" src="/distributionIntroduction.png" /></p>
+<p><img alt="" src="../images/statistic/distributionIntroduction.png" /></p>
 <ul>
 <li>每一分布图右上角有放大缩小按钮，右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</li>
 </ul>
-                
-                  
                 
               
               
@@ -1073,7 +1071,11 @@
       
         <script src="../../assets/js/simpleLightbox.min.js"></script>
       
-        <script src="../../assets/js/lightbox.js"></script>
+        <script src="../../assets/js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
