@@ -605,10 +605,10 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    模块功能
+    模块功能介绍
   </a>
   
-    <nav class="md-nav" aria-label="模块功能">
+    <nav class="md-nav" aria-label="模块功能介绍">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -616,10 +616,37 @@
     直方图
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="直方图">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    单个直方图的基础功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    直方图全局功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    样式特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     分布图
   </a>
   
@@ -846,10 +873,10 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    模块功能
+    模块功能介绍
   </a>
   
-    <nav class="md-nav" aria-label="模块功能">
+    <nav class="md-nav" aria-label="模块功能介绍">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -857,10 +884,37 @@
     直方图
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="直方图">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    单个直方图的基础功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    直方图全局功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    样式特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     分布图
   </a>
   
@@ -890,45 +944,52 @@
                 
                 <h1 id="_1">统计分析使用教程</h1>
 <h2 id="_2">模块简介</h2>
-<p>对模型训练过程中产生的张量数据在每个step的分布进行统计分析后，统计分析可视化模块可对统计数据进行可视化，本模块包括两种统计图：直方图和分布图。直方图是对每个step中该张量各值出现的次数进行统计；分布图是把数据转换到正态分布时的统计。</p>
-<h2 id="_3">模块功能</h2>
+<p>模型训练过程中产生的张量数据，后端对其多个step的值分别进行统计分析，前端统计分析可视化模块可对统计后的数据进行可视化。</p>
+<p>本模块包括两种统计图：直方图和分布图。直方图是对每个step中该张量各值出现的次数进行统计；分布图是把数据转换到正态分布时的统计。</p>
+<p><img alt="" src="/statisticAll.png" /></p>
+<h2 id="_3">模块功能介绍</h2>
 <h4 id="_4">直方图</h4>
-<ol>
+<h5 id="_5">单个直方图的基础功能</h5>
+<ul>
 <li>
 <p>鼠标悬浮在直方图上会高亮相应step直方图的边界，并且遮挡住该step数据的直方图的透明度会降低</p>
 </li>
 <li>
-<p>直方图会在x轴、y轴和鼠标位置显示鼠标最近点对应的value、step和count，表示当前点是第step步上的一个点，落在以value为中心的区间的值有count个</p>
+<p>直方图会在x轴、y轴和鼠标位置显示鼠标最近点对应的value、step和count，表示当前点是对第step步上张量数据的统计结果，表示落在以value为中心的区间的值有count个</p>
 </li>
-<li>
-<p>「数据信息栏」将会显示该step的一些统计信息</p>
-</li>
-<li>
-<p>其他 step 对应同一 value 值的点将会用圆点标记出来</p>
-</li>
-</ol>
-<p><img alt="func1" src="../images/statistic/func1.png" /></p>
-<ol>
-<li>
-<p>每一直方图右上角有放大缩小按钮。右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</p>
-</li>
-<li>
-<p>直方图有两种模式：三维模式和二维模式。二维模式可以视为三维模式的正视图，操作同三维直方图</p>
-</li>
-</ol>
-<p><img alt="func2" src="../images/statistic/func2.png" /></p>
-<ol>
+<li>同时，右侧控制面板的「数据信息栏」将会显示该step张量的一些统计信息</li>
+<li>同时，其他 step 对应同一 value 值的点将会用黄色圆点标记出来</li>
+<li>每一直方图右上角有放大缩小按钮。右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</li>
+</ul>
+<p><img alt="" src="/histogramHover.png" /> <img alt="" src="/histogramInfo.png" /> <img alt="" src="/histogramHover2.png" /></p>
+<h5 id="_6">直方图全局功能</h5>
+<ul>
+<li>直方图有两种模式：三维模式和二维模式。二维模式可以视为三维模式的正视图，操作基本同三维直方图，鼠标悬浮可以高亮选中的step数据，该step张量的统计信息会展示在右侧的控制面板中</li>
+</ul>
+<p><img alt="" src="/histogram3d.png" /> <img alt="" src="/histogram2d.png" /></p>
+<ul>
 <li>「控制面板」 — 「数据显示比率」：按百分比选择显示多少条 step 数据</li>
-</ol>
-<p><img alt="func3" src="../images/statistic/func3.png" /></p>
-<ol>
+</ul>
+<p>下面左图是100%的数据显示比率，数据很密；右图是20%的数据显示比率，数据比较稀疏</p>
+<p><img alt="" src="/histogramRate100.png" /> <img alt="" src="/histogramRate20.png" /></p>
+<ul>
 <li>「控制面板」— 「统计区间个数」：统计区间个数越大，区间范围越小，越接近真实值</li>
-</ol>
-<p><img alt="func4" src="../images/statistic/func4.png" /></p>
-<h4 id="_5">分布图</h4>
-<p>分布图用于展示转换为标准正态分布下的数据分布，数据转换成标准正态分布后的分布图，从上到下一共九条线，分别为：最大值、1.5σ、1.0σ、0.5σ、0、-0.5σ、-1.0σ、-1.5σ、最小值</p>
-<p>每一分布图右上角有放大缩小按钮，右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</p>
-<p><img alt="func5" src="../images/statistic/func5.png" /></p>
+</ul>
+<p>下图中左图的统计区间个数是20，曲线比较平滑；右图的统计区间个数是100个，分段更多</p>
+<p><img alt="" src="/histogramBins20.png" /> <img alt="" src="/histogramBins100.png" /></p>
+<h5 id="_7">样式特点</h5>
+<p>本页面提供了11种配色，可以为每个run赋予不同的颜色，直方图和分布图都有这种样式特点</p>
+<p><img alt="" src="/histogramColor1.png" /> <img alt="" src="/histogramColor2.png" /> <img alt="" src="/histogramColor3.png" /> <img alt="" src="/histogramColor7.png" /></p>
+<h4 id="_8">分布图</h4>
+<ul>
+<li>分布图用于展示转换为标准正态分布下的数据分布，数据转换成标准正态分布后的分布图，从上到下一共九条线，分别为：最大值、1.5σ、1.0σ、0.5σ、0、-0.5σ、-1.0σ、-1.5σ、最小值</li>
+</ul>
+<p><img alt="" src="/distributionIntroduction.png" /></p>
+<ul>
+<li>每一分布图右上角有放大缩小按钮，右上角矩形框为「用户定制」所用，选中后再按「定制」按钮就可以把数据迁移至「用户定制」页面</li>
+</ul>
+                
+                  
                 
               
               

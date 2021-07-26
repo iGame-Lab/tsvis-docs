@@ -769,13 +769,13 @@
                 
                 <p>可视化同一个或多个网络模型在不同超参数组合的训练结果</p>
 <div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_hparams</span><span class="p">(</span><span class="n">hparam_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
-                          <span class="n">metric_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]]</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                           <span class="n">tag</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        添加一组数据到日志</span>
 <span class="sd">    Args:</span>
 <span class="sd">        hparam_dict: 字典，模型的超参数</span>
-<span class="sd">        metric_dict: 字典，可选参数， 模型的度量数据</span>
+<span class="sd">        metrics: 列表、元组，可选参数， 需要记录的度量指标，该指标必须在scalar中已定义</span>
 <span class="sd">        tag: 字符串，可选参数，超参数的标识</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div>
