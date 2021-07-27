@@ -23,7 +23,23 @@ pip install zjvis
 
 ### 从源码编译前端
 
-待完善
+首先安装依赖
+
+```
+npm install
+```
+
+然后修改`zjvis/webapp/src/utils/constants.js`文件内参数
+
+```
+const DJANGOHOSTNAME = ''
+```
+
+然后使用命令打包前端生成静态文件
+
+```
+npm run build
+```
 
 ### 从源码安装后端
 
