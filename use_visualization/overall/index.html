@@ -14,7 +14,7 @@
     
     
       
-        <title>标量数据 - Zjvis</title>
+        <title>主界面 - Zjvis</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              标量数据
+              主界面
             
           </span>
         </div>
@@ -219,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../overall/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         使用可视化组件
       </a>
     </li>
@@ -526,11 +526,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../overall/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          主界面
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         主界面
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    主界面功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -550,65 +590,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          标量数据
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../scalar/" class="md-nav__link">
         标量数据
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    模块简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    模块界面
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    功能操作说明
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -838,21 +824,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    模块简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    模块界面
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    功能操作说明
+    主界面功能
   </a>
   
 </li>
@@ -869,41 +841,27 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/iGame-Lab/zjvis/blob/master/docs/use_visualization/scalar.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/iGame-Lab/zjvis/blob/master/docs/use_visualization/overall.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">标量数据使用教程</h1>
-<h2 id="_2">模块简介</h2>
-<p>标量数据模块用于展示模型训练过程中所产生的一些标量数据，包括训练loss，模型accuracy，网络每层的bias和weight等。用户可以在统计图上观察标量数据随训练过程的变化情况，底部的统计信息可以显示用户鼠标所选点的详细信息，同时可以选择全局放大或局部放大来深入研究。右侧为控制面板，用户可以更改统计图曲线的平滑程度以及数据的统计方式。用户也可以通过选取多张统计图进行合并研究，点击还原按钮恢复多张统计图。</p>
-<h2 id="_3">模块界面</h2>
-<p><img alt="scalar_main" class="img-fluid" src="../images/scalar/scalar_main.png" /></p>
-<h2 id="_4">功能操作说明</h2>
-<p>1.支持数据图[放大]、[还原]、[选中]</p>
-<p><img alt="scalar_global_zoom" src="../images/scalar/scalar_global_zoom.png" /></p>
-<p>2.支持选取局部区域放大，双击还原</p>
-<p><img alt="scalar_local_zoom" src="../images/scalar/scalar_local_zoom.gif" /></p>
-<p>3.数据点Hover展示详细信息</p>
-<p>wall_time:训练绝对时间</p>
-<p>step:迭代次数</p>
-<p>value:训练过程标量值</p>
-<p><img alt="scalar_hover" src="../images/scalar/scalar_hover.png" /></p>
-<p>4.控制面板</p>
-<p><img alt="scalar_control_panel" src="../images/scalar/scalar_control_panel.png" /></p>
-<p>4.1 曲线平滑度设置，以便更好的展现参数整体的变化趋势</p>
-<p>平滑度=0.7（实线）-平滑度=0（虚线）</p>
-<p><img alt="scalar_smooth_setting" src="../images/scalar/scalar_smooth_setting.png" /></p>
-<p>4.2 y轴坐标转化</p>
-<p>采用linear和log_linear两种显示方式</p>
-<p><img alt="scalar_yaxis_setting1" src="../images/scalar/scalar_yaxis_setting1.png" />
-<img alt="scalar_yaxis_setting2" src="../images/scalar/scalar_yaxis_setting2.png" /></p>
-<p>4.3 数据图合并与还原</p>
-<p>用户可以勾选多张数据图，点击合并按钮，生成合并数据图。点击还原按钮，恢复多张原图。</p>
-<p><img alt="scalar_merge" class="img-fluid" src="../images/scalar/scalar_merge.gif" /></p>
-<p>5.用户定制</p>
-<p>用户可勾选标量数据里的多张数据图，点击用户定制按钮，跳转到用户定制界面进行分析。</p>
-<p><img alt="scalar_user_select" class="img-fluid" src="../images/scalar/scalar_user_select.gif" /></p>
+                <h1 id="_1">主界面</h1>
+<h2 id="_2">主界面功能</h2>
+<p>平台主界面提供了10个功能:</p>
+<ul>
+<li>用户定制按键,该功能具体参考<a href="../custom">用户定制模块</a>。</li>
+<li>图片下载，当前支持模型结构、标量数据、统计分析三个模块的png/eps格式图片下载。</li>
+<li>全屏按键。</li>
+<li>数据切换，用于切换模块内显示的数据。</li>
+<li>刷新数据,更新模块内显示的数据。</li>
+<li>定时刷新数据。</li>
+<li>操作手册。</li>
+<li>模块切换,用于切换模型结构, 标量数据, 媒体数据, 统计分析, 降维分析, 超参数分析, 异常检测，用户定制8个模块。</li>
+<li>模块栏缩进。</li>
+<li>操作栏缩进。</li>
+</ul>
+<p><img alt="" class="img-fluid" src="../images/overall/overall.png" /></p>
                 
               
               
@@ -923,7 +881,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../graph/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 模型结构" rel="prev">
+        <a href="../../write_log/write_exception/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 异常检测数据" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -932,20 +890,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              模型结构
+              异常检测数据
             </div>
           </div>
         </a>
       
       
         
-        <a href="../media/" class="md-footer__link md-footer__link--next" aria-label="下一页: 媒体数据" rel="next">
+        <a href="../graph/" class="md-footer__link md-footer__link--next" aria-label="下一页: 模型结构" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              媒体数据
+              模型结构
             </div>
           </div>
           <div class="md-footer__button md-icon">

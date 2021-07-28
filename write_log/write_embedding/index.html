@@ -214,7 +214,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../use_visualization/graph/" class="md-tabs__link">
+      <a href="../../use_visualization/overall/" class="md-tabs__link">
         使用可视化组件
       </a>
     </li>
@@ -531,6 +531,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../use_visualization/overall/" class="md-nav__link">
+        主界面
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../use_visualization/graph/" class="md-nav__link">
         模型结构
       </a>
@@ -767,8 +779,8 @@
                 
                   <h1>降维分析数据</h1>
                 
-                <p>可视化高维数据的聚类。以动画的形式显示样本数据在各网络层中产生的高维嵌入的聚类变化</p>
-<p>1.可视化的样本数据，只需在训练的开始或结束添加一次即可，tag应与产生的高维嵌入数据的tag保持一致</p>
+                <p>可视化高维数据的聚类。以动画的形式显示样本数据在各网络层中产生的高维嵌入的聚类变化
+  1.可视化的样本数据，只需在训练的开始或结束添加一次即可，tag应与产生的高维嵌入数据的tag保持一致</p>
 <div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding_sample</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                                    <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
                                    <span class="n">sample_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -781,7 +793,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div>
 <p>2.样本数据产生的高维嵌入数据</p>
-<div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<p><div class="highlight"><pre><span></span><code><span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                             <span class="n">tensor</span><span class="p">:</span> <span class="n">numpy_compatible</span><span class="p">,</span>
                             <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">numpy_compatible</span><span class="p">]</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -794,6 +806,33 @@
 <span class="sd">        step: 整数，可选参数，记录数据的step</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div>
+<br>
+<strong>ps</strong>:可视化高维数据提供了两种方式：</p>
+<p>（a）使用<strong>同一组测试数据</strong>在不同step生成高维嵌入数据。用户通过add_embedding_sample添加测试的样本数据，在可视化过程中可通过点击样本点查看原始样本。
+<div class="highlight"><pre><span></span><code>    <span class="n">model</span> <span class="o">=</span> <span class="n">MinistNet</span><span class="p">()</span>
+    <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">()</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">add_embedding_sample</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="n">test_x</span><span class="p">,</span> <span class="n">sample_type</span><span class="o">=</span><span class="s1">&#39;iamge&#39;</span><span class="p">)</span>   
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># 1.train stage</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+             <span class="o">.....</span>
+
+        <span class="c1"># 2.eval stage</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">test_y</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+</code></pre></div></p>
+<p>（b）使用<strong>不同的数据</strong>在不同的step生成高维嵌入数据。 此时每个step的样本数据并不相同，不再支持查看降维后每个样本点对应的样本数据。用户无需通过add_embedding_sample添加样本数据，否则查看的样本点数据将出现不一致等问题。
+<div class="highlight"><pre><span></span><code>    <span class="n">model</span> <span class="o">=</span> <span class="n">MinistNet</span><span class="p">()</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># 1.train stage</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">train_y</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+</code></pre></div></p>
                 
               
               
