@@ -13,14 +13,14 @@
 1.支持数据图[放大]、[还原]、[选中]
 
 
-![func1](./images/scalar/func1.png){ .img-fluid }
+![scalar_global_zoom](./images/scalar/scalar_global_zoom.png)
 
 
 
 2.支持选取局部区域放大，双击还原
 
 
-![func2](./images/scalar/func2.gif){ .img-fluid }
+![scalar_local_zoom](./images/scalar/scalar_local_zoom.gif)
 
 
 3.数据点Hover展示详细信息
@@ -34,13 +34,13 @@ step:迭代次数
 value:训练过程标量值
 
 
-![func3](./images/scalar/func3.png){ .img-fluid }
+![scalar_hover](./images/scalar/scalar_hover.png)
 
 
 4.控制面板
 
 
-![func4](./images/scalar/func4.png){ .img-fluid }
+![scalar_control_panel](./images/scalar/scalar_control_panel.png)
 
 
 4.1 曲线平滑度设置，以便更好的展现参数整体的变化趋势
@@ -49,7 +49,7 @@ value:训练过程标量值
 平滑度=0.7（实线）-平滑度=0（虚线）
 
 
-![func4.1](./images/scalar/func4_1.png){ .img-fluid }
+![scalar_smooth_setting](./images/scalar/scalar_smooth_setting.png)
 
 
 4.2 y轴坐标转化
@@ -58,8 +58,8 @@ value:训练过程标量值
 采用linear和log_linear两种显示方式
 
 
-![func4.2.1](./images/scalar/func4_2_1.png){ .img-fluid }
-![func4.2.2](./images/scalar/func4_2_2.png){ .img-fluid }
+![scalar_yaxis_setting1](./images/scalar/scalar_yaxis_setting1.png)
+![scalar_yaxis_setting2](./images/scalar/scalar_yaxis_setting2.png)
 
 
 
@@ -69,7 +69,7 @@ value:训练过程标量值
 用户可以勾选多张数据图，点击合并按钮，生成合并数据图。点击还原按钮，恢复多张原图。
 
 
-![func4.3](./images/scalar/func4_3.gif){ .img-fluid }
+![scalar_merge](./images/scalar/scalar_merge.gif){ .img-fluid }
 
 
 5.用户定制
@@ -78,4 +78,4 @@ value:训练过程标量值
 用户可勾选标量数据里的多张数据图，点击用户定制按钮，跳转到用户定制界面进行分析。
 
 
-![func5](./images/scalar/func5.gif){ .img-fluid }
+![scalar_user_select](./images/scalar/scalar_user_select.gif){ .img-fluid }
