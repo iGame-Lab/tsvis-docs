@@ -54,5 +54,5 @@ pip install setuptools
 然后使用命令安装到Python环境
 
 ```
-python setup.py
+python setup.py install
 ```
