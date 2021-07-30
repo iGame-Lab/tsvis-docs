@@ -7,7 +7,7 @@
 
 不管通过那种方式安装，都需要确保你的Python版本为3.6以上，如果不满足请先升级Python
 
-## 从Pip安装
+## 使用pip安装
 
 !!! 建议
     
@@ -35,7 +35,7 @@ npm install
 const DJANGOHOSTNAME = ''
 ```
 
-然后使用命令打包前端生成静态文件
+使用命令打包前端生成静态文件
 
 ```
 npm run build
@@ -45,13 +45,13 @@ npm run build
 
 从源码安装后端需要先将前端编译生成的静态文件移动到`zjvis/server/frontend`文件夹下
 
-然后安装依赖`setuptools`
+然后安装Python依赖包`setuptools`
 
 ```
 pip install setuptools
 ```
 
-然后使用命令安装到Python环境
+执行`setup.py`文件安装zjvis到Python环境
 
 ```
 python setup.py install
