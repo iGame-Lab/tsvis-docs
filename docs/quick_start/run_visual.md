@@ -5,7 +5,7 @@
 在命令行执行命令
 
 ```
-python main.py --logdir ./logs/torch/
+zjvis --logdir path/to/logdir/
 ```
 
 命令行输出如下则启动可视化服务成功
