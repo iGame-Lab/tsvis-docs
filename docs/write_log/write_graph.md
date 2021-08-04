@@ -1,4 +1,4 @@
-  可视化主流深度学习框架的网络模型，如**tensorflow**，**pytorch**,  **oneflow**等。
+  可视化主流深度学习框架的网络模型，如**tensorflow**、**pytorch**、**oneflow**等。
 
   1.主流神经网络模型
 
