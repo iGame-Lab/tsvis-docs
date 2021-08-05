@@ -10,20 +10,20 @@
 
 
 ## 功能操作说明
-### 1.支持数据图[放大]、[还原]、[选中]
+### 1. 支持数据图[放大]、[还原]、[选中]
 
 
 ![scalar_global_zoom](./images/scalar/scalar_global_zoom.png)
 
 
 
-### 2.支持选取局部区域放大，双击还原
+### 2. 支持选取局部区域放大，双击还原
 
 
 ![scalar_local_zoom](./images/scalar/scalar_local_zoom.gif)
 
 
-### 3.数据点Hover展示详细信息
+### 3. 数据点Hover展示详细信息
 
 wall_time:训练绝对时间
 
@@ -37,7 +37,7 @@ value:训练过程标量值
 ![scalar_hover](./images/scalar/scalar_hover.png)
 
 
-### 4.控制面板
+### 4. 控制面板
 
 
 ![scalar_control_panel](./images/scalar/scalar_control_panel.png)
@@ -46,7 +46,7 @@ value:训练过程标量值
 4.1 曲线平滑度设置，以便更好的展现参数整体的变化趋势
 
 
-平滑度=0.7（实线）-平滑度=0（虚线）
+平滑度=0.7（实线）vs 平滑度=0（虚线）
 
 
 ![scalar_smooth_setting](./images/scalar/scalar_smooth_setting.png)
