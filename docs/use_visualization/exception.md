@@ -1,5 +1,7 @@
 # 异常检测使用教程
 
+![exception](C:\Users\qiqi\Desktop\zjvis-docs\docs\use_visualization\images\exception\exception.gif)
+
 ## 模块简介
 
 异常检测可视化模块从三个角度可视化一个高维的张量数据：绘制了张量数据一个step的统计直方图和五个step的盒须图，还可以把高维张量转化成二维的张量然后用颜色矩阵可视化出来。三个图表可以实现联动变化，通过丰富的交互操作帮助用户发现数据中的异常点。

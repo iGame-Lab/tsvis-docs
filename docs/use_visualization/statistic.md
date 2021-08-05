@@ -1,5 +1,7 @@
 # 统计分析使用教程
 
+![statistic](C:\Users\qiqi\Desktop\zjvis-docs\docs\use_visualization\images\statistic\statistic.gif)
+
 ## 模块简介
 
 模型训练过程中产生的张量数据，后端对其多个step的值分别进行统计分析，前端统计分析可视化模块可对统计后的数据进行可视化。
