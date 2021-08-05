@@ -889,6 +889,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    媒体数据功能设计
+  </a>
+  
+    <nav class="md-nav" aria-label="媒体数据功能设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    音频文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    图像文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    文本文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    标量数据分析
+  </a>
+  
+    <nav class="md-nav" aria-label="标量数据分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    标量数据分析数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    标量数据展示图绘制
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1178,6 +1239,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    媒体数据功能设计
+  </a>
+  
+    <nav class="md-nav" aria-label="媒体数据功能设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    音频文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    图像文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    文本文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    标量数据分析
+  </a>
+  
+    <nav class="md-nav" aria-label="标量数据分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    标量数据分析数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    标量数据展示图绘制
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1418,6 +1540,242 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
     <span class="kc">f</span><span class="err">irs</span><span class="kc">t</span><span class="err">Time</span><span class="p">:</span> <span class="kc">true</span>
   <span class="p">}</span>
 </code></pre></div>
+<h3 id="_24">媒体数据功能设计</h3>
+<p>布局三个标签tag，即音频，图像和文本，根据日志内容是否含有该项数据选择是否显示标签。</p>
+<h4 id="_25">音频文件</h4>
+<p>拖动查看不同step音频</p>
+<div class="highlight"><pre><span></span><code><span class="kc">f</span><span class="err">orma</span><span class="kc">t</span><span class="err">Tool</span><span class="kc">t</span><span class="err">ip(val)</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(val</span> <span class="err">===</span> <span class="kc">null</span><span class="err">)</span> <span class="p">{</span>
+     <span class="err">re</span><span class="kc">turn</span> <span class="mi">0</span>
+   <span class="p">}</span>
+   <span class="err">re</span><span class="kc">turn</span> <span class="kc">t</span><span class="err">his.audioco</span><span class="kc">ntent</span><span class="p">[</span><span class="err">val</span><span class="p">][</span><span class="err">&#39;s</span><span class="kc">te</span><span class="err">p&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>下载</p>
+<div class="highlight"><pre><span></span><code><span class="err">dow</span><span class="kc">n</span><span class="err">Audio(param)</span> <span class="p">{</span>
+   <span class="err">co</span><span class="kc">nst</span> <span class="kc">f</span><span class="err">ile</span><span class="kc">na</span><span class="err">me</span> <span class="err">=</span> <span class="err">&#39;audio.wav&#39;</span>
+   <span class="kc">fet</span><span class="err">ch(param</span><span class="p">,</span> <span class="p">{</span>
+     <span class="err">headers</span><span class="p">:</span> <span class="kc">ne</span><span class="err">w</span> <span class="err">Headers(</span><span class="p">{</span>
+       <span class="err">Origi</span><span class="kc">n</span><span class="p">:</span> <span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">.origi</span><span class="kc">n</span>
+     <span class="p">}</span><span class="err">)</span><span class="p">,</span>
+     <span class="err">mode</span><span class="p">:</span> <span class="err">&#39;cors&#39;</span>
+   <span class="p">}</span><span class="err">)</span>
+     <span class="err">.</span><span class="kc">t</span><span class="err">he</span><span class="kc">n</span><span class="err">(res</span> <span class="err">=&gt;</span> <span class="err">res.blob())</span>
+     <span class="err">.</span><span class="kc">t</span><span class="err">he</span><span class="kc">n</span><span class="err">(blob</span> <span class="err">=&gt;</span> <span class="p">{</span>
+       <span class="err">co</span><span class="kc">nst</span> <span class="err">blobUrl</span> <span class="err">=</span> <span class="err">wi</span><span class="kc">n</span><span class="err">dow.URL.crea</span><span class="kc">te</span><span class="err">Objec</span><span class="kc">t</span><span class="err">URL(blob)</span>
+       <span class="kc">t</span><span class="err">his.dow</span><span class="kc">nl</span><span class="err">oad(blobUrl</span><span class="p">,</span> <span class="kc">f</span><span class="err">ile</span><span class="kc">na</span><span class="err">me)</span>
+       <span class="err">wi</span><span class="kc">n</span><span class="err">dow.URL.revokeObjec</span><span class="kc">t</span><span class="err">URL(blobUrl)</span>
+     <span class="p">}</span><span class="err">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>快进</p>
+<div class="highlight"><pre><span></span><code><span class="err">cha</span><span class="kc">n</span><span class="err">geSpeed()</span> <span class="p">{</span>
+   <span class="err">co</span><span class="kc">nst</span> <span class="err">i</span><span class="kc">n</span><span class="err">dex</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.speeds.i</span><span class="kc">n</span><span class="err">dexO</span><span class="kc">f</span><span class="err">(</span><span class="kc">t</span><span class="err">his.audio.speed)</span> <span class="err">+</span> <span class="mi">1</span>
+   <span class="kc">t</span><span class="err">his.audio.speed</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.speeds</span><span class="p">[</span><span class="err">i</span><span class="kc">n</span><span class="err">dex</span> <span class="err">%</span> <span class="kc">t</span><span class="err">his.speeds.le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">]</span>
+   <span class="kc">t</span><span class="err">his.$re</span><span class="kc">fs</span><span class="err">.audio.playbackRa</span><span class="kc">te</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.audio.speed</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>静音</p>
+<div class="highlight"><pre><span></span><code><span class="err">s</span><span class="kc">tart</span><span class="err">Mu</span><span class="kc">te</span><span class="err">dOrNo</span><span class="kc">t</span><span class="err">()</span> <span class="p">{</span>
+   <span class="kc">t</span><span class="err">his.$re</span><span class="kc">fs</span><span class="err">.audio.mu</span><span class="kc">te</span><span class="err">d</span> <span class="err">=</span> <span class="err">!</span><span class="kc">t</span><span class="err">his.$re</span><span class="kc">fs</span><span class="err">.audio.mu</span><span class="kc">te</span><span class="err">d</span>
+   <span class="kc">t</span><span class="err">his.audio.mu</span><span class="kc">te</span><span class="err">d</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.$re</span><span class="kc">fs</span><span class="err">.audio.mu</span><span class="kc">te</span><span class="err">d</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_26">图像文件</h4>
+<p>查看图片</p>
+<p>拖动查看不同step图片</p>
+<div class="highlight"><pre><span></span><code><span class="kc">f</span><span class="err">orma</span><span class="kc">t</span><span class="err">Tool</span><span class="kc">t</span><span class="err">ip(val)</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(val</span> <span class="err">===</span> <span class="kc">null</span><span class="err">)</span> <span class="p">{</span>
+     <span class="err">re</span><span class="kc">turn</span> <span class="mi">0</span>
+   <span class="p">}</span>
+   <span class="err">re</span><span class="kc">turn</span> <span class="kc">t</span><span class="err">his.imageco</span><span class="kc">ntent</span><span class="p">[</span><span class="err">val</span><span class="p">][</span><span class="err">&#39;s</span><span class="kc">te</span><span class="err">p&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ischeckedLocal()</span> <span class="p">{</span>
+   <span class="kc">t</span><span class="err">his.checked</span> <span class="err">=</span> <span class="err">!</span><span class="kc">t</span><span class="err">his.checked</span>
+   <span class="err">co</span><span class="kc">nst</span> <span class="err">param</span> <span class="err">=</span> <span class="p">{}</span>
+   <span class="err">param</span><span class="p">[</span><span class="err">&#39;checked&#39;</span><span class="p">]</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.checked</span>
+   <span class="err">param</span><span class="p">[</span><span class="err">&#39;copyToDa</span><span class="kc">ta</span><span class="err">&#39;</span><span class="p">]</span> <span class="err">=</span> <span class="kc">false</span>
+   <span class="err">param</span><span class="p">[</span><span class="err">&#39;co</span><span class="kc">ntent</span><span class="err">&#39;</span><span class="p">]</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.co</span><span class="kc">ntent</span>
+   <span class="kc">t</span><span class="err">his.se</span><span class="kc">t</span><span class="err">ImageDa</span><span class="kc">ta</span><span class="err">(param)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>图片放大缩小</p>
+<div class="highlight"><pre><span></span><code><span class="err">scaleLarge()</span> <span class="p">{</span>
+   <span class="kc">t</span><span class="err">his.scaleLargeSmall</span> <span class="err">=</span> <span class="kc">true</span>
+   <span class="kc">t</span><span class="err">his.size</span> <span class="err">=</span> <span class="mi">24</span>
+<span class="p">}</span>
+<span class="err">scaleSmall()</span> <span class="p">{</span>
+   <span class="kc">t</span><span class="err">his.size</span> <span class="err">=</span> <span class="mi">8</span>
+   <span class="kc">t</span><span class="err">his.scaleLargeSmall</span> <span class="err">=</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_27">文本文件</h4>
+<p>拖动查看不同step文本</p>
+<p><div class="highlight"><pre><span></span><code><span class="kc">f</span><span class="err">orma</span><span class="kc">t</span><span class="err">Tool</span><span class="kc">t</span><span class="err">ip(val)</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(val</span> <span class="err">===</span> <span class="kc">null</span><span class="err">)</span> <span class="p">{</span>
+     <span class="err">re</span><span class="kc">turn</span> <span class="mi">0</span>
+   <span class="p">}</span>
+   <span class="err">re</span><span class="kc">turn</span> <span class="kc">t</span><span class="err">his.</span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span><span class="err">co</span><span class="kc">ntent</span><span class="p">[</span><span class="err">val</span><span class="p">][</span><span class="err">&#39;s</span><span class="kc">te</span><span class="err">p&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+// =================================================================================</p>
+<h2 id="_28">标量数据分析</h2>
+<p>标量数据分析首先请求后端数据，维护一个state数据。</p>
+<h3 id="_29">标量数据分析数据</h3>
+<p>标量数据state数据结构如下
+<div class="highlight"><pre><span></span><code><span class="err">co</span><span class="kc">nst</span> <span class="err">s</span><span class="kc">tate</span> <span class="err">=</span> <span class="p">{</span>
+  <span class="err">i</span><span class="kc">n</span><span class="err">i</span><span class="kc">ts</span><span class="err">howru</span><span class="kc">n</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">ca</span><span class="kc">te</span><span class="err">goryI</span><span class="kc">nf</span><span class="err">o</span><span class="p">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span> <span class="err">//</span> <span class="err">存放自己的类目信息</span>
+  <span class="err">de</span><span class="kc">ta</span><span class="err">ilDa</span><span class="kc">ta</span><span class="p">:</span> <span class="p">{},</span> <span class="err">//</span> <span class="err">具体全部数据</span>
+  <span class="err">clickS</span><span class="kc">tate</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="err">smoo</span><span class="kc">t</span><span class="err">hvalue</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="err">//</span> <span class="err">平滑参数</span>
+  <span class="err">yaxis</span><span class="p">:</span> <span class="err">&#39;li</span><span class="kc">near</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">//</span> <span class="err">y轴数据类型</span>
+  <span class="err">checkedi</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span> <span class="p">{},</span> <span class="err">//</span> <span class="err">选中的数据</span>
+  <span class="err">mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span> <span class="p">{},</span> <span class="err">//</span> <span class="err">参与合并的数据</span>
+  <span class="err">s</span><span class="kc">tart</span><span class="err">merged</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="err">//</span> <span class="err">是否开始合并</span>
+  <span class="err">e</span><span class="kc">n</span><span class="err">dmerged</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="err">//</span> <span class="err">是否结束合并</span>
+  <span class="err">merges</span><span class="kc">te</span><span class="err">p</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="err">//</span> <span class="err">合并时执行的步骤</span>
+  <span class="err">backs</span><span class="kc">te</span><span class="err">p</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="err">//</span> <span class="err">还原时执行的步骤</span>
+  <span class="err">checkedorder</span><span class="p">:</span> <span class="p">[],</span> <span class="err">//</span> <span class="err">区分主副图表</span>
+  <span class="err">merged</span><span class="kc">nu</span><span class="err">mber</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="err">//</span> <span class="err">合并图表的数量</span>
+  <span class="err">backed</span><span class="kc">nu</span><span class="err">mber</span><span class="p">:</span> <span class="p">[],</span> <span class="err">//</span> <span class="err">还原图表的数量</span>
+  <span class="err">clea</span><span class="kc">n</span><span class="err">check</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="kc">t</span><span class="err">o</span><span class="kc">talta</span><span class="err">g</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="kc">fres</span><span class="err">hI</span><span class="kc">nf</span><span class="err">o</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="kc">fres</span><span class="err">h</span><span class="kc">nu</span><span class="err">mber</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="err">errorMessage</span><span class="p">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span>
+  <span class="err">dow</span><span class="kc">n</span><span class="err">LoadArray</span><span class="p">:</span> <span class="p">[],</span> <span class="err">//</span> <span class="err">下载svg图暂存id</span>
+  <span class="err">grade</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">checked</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">mergedorder</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">showFlag</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">subisshow</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="err">I</span><span class="kc">nter</span><span class="err">valCha</span><span class="kc">n</span><span class="err">ge</span><span class="p">:</span> <span class="kc">false</span> <span class="err">//</span> <span class="err">监听定时刷新功能</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="_30">标量数据展示图绘制</h3>
+<ol>
+<li>
+<p>根据加载日志是否含有本类数据显示日志文件类型标签，如loss，mean等数据类型。</p>
+</li>
+<li>
+<p>svg数据图绘制</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">SvgDraw()</span> <span class="p">{</span>
+  <span class="err">//</span> <span class="err">load</span> <span class="err">da</span><span class="kc">ta</span>
+   <span class="err">le</span><span class="kc">t</span> <span class="err">da</span><span class="kc">ta</span> <span class="err">=</span> <span class="p">[]</span><span class="err">.co</span><span class="kc">n</span><span class="err">ca</span><span class="kc">t</span><span class="err">(JSON.parse(JSON.s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">gi</span><span class="kc">f</span><span class="err">y(</span><span class="kc">t</span><span class="err">his.da</span><span class="kc">ta</span><span class="err">)))</span>
+   <span class="err">...</span>
+  <span class="err">//</span> <span class="err">se</span><span class="kc">t</span> <span class="kc">t</span><span class="err">he</span> <span class="err">dime</span><span class="kc">ns</span><span class="err">io</span><span class="kc">ns</span> <span class="err">a</span><span class="kc">n</span><span class="err">d</span> <span class="err">margi</span><span class="kc">ns</span> <span class="err">o</span><span class="kc">f</span> <span class="kc">t</span><span class="err">he</span> <span class="err">graph</span>
+   <span class="err">var</span> <span class="err">margi</span><span class="kc">n</span> <span class="err">=</span> <span class="p">{</span> <span class="kc">t</span><span class="err">op</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="err">righ</span><span class="kc">t</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="err">bo</span><span class="kc">tt</span><span class="err">om</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="err">le</span><span class="kc">ft</span><span class="p">:</span> <span class="mi">70</span> <span class="p">}</span>
+   <span class="err">var</span> <span class="err">wid</span><span class="kc">t</span><span class="err">h</span> <span class="err">=</span> <span class="mi">350</span> <span class="mi">-</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.le</span><span class="kc">ft</span> <span class="mi">-</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.righ</span><span class="kc">t</span>
+   <span class="err">var</span> <span class="err">heigh</span><span class="kc">t</span> <span class="err">=</span> <span class="mi">270</span> <span class="mi">-</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.</span><span class="kc">t</span><span class="err">op</span> <span class="mi">-</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.bo</span><span class="kc">tt</span><span class="err">om</span>
+   <span class="err">...</span>
+   <span class="err">//</span> <span class="err">Add</span> <span class="err">X</span> <span class="err">axis</span>
+  <span class="err">co</span><span class="kc">nst</span> <span class="err">xdomai</span><span class="kc">n</span> <span class="err">=</span> <span class="err">d</span><span class="mf">3.e</span><span class="err">x</span><span class="kc">tent</span><span class="err">(da</span><span class="kc">ta</span><span class="p">,</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">(d)</span> <span class="p">{</span> <span class="err">re</span><span class="kc">turn</span> <span class="err">d.s</span><span class="kc">te</span><span class="err">p</span> <span class="p">}</span><span class="err">)</span>
+  <span class="err">...</span>
+  <span class="err">//</span> <span class="err">Add</span> <span class="err">Y</span> <span class="err">axis</span>
+  <span class="err">co</span><span class="kc">nst</span> <span class="err">ydomai</span><span class="kc">n</span> <span class="err">=</span> <span class="err">d</span><span class="mf">3.e</span><span class="err">x</span><span class="kc">tent</span><span class="err">(da</span><span class="kc">ta</span><span class="p">,</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">(d)</span> <span class="p">{</span> <span class="err">re</span><span class="kc">turn</span> <span class="err">d.value</span> <span class="p">}</span><span class="err">)</span>
+  <span class="err">//</span> <span class="err">appe</span><span class="kc">n</span><span class="err">d</span> <span class="kc">t</span><span class="err">he</span> <span class="err">svg</span> <span class="err">objec</span><span class="kc">t</span> <span class="kc">t</span><span class="err">o</span> <span class="kc">t</span><span class="err">he</span> <span class="err">body</span> <span class="err">o</span><span class="kc">f</span> <span class="kc">t</span><span class="err">he</span> <span class="err">page</span>
+  <span class="err">var</span> <span class="err">svg</span> <span class="err">=</span> <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me)</span>
+    <span class="err">.appe</span><span class="kc">n</span><span class="err">d(&#39;svg&#39;)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;id&#39;</span><span class="p">,</span> <span class="err">&#39;svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;wid</span><span class="kc">t</span><span class="err">h&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="mi">100</span><span class="err">%&#39;)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;heigh</span><span class="kc">t</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="mi">100</span><span class="err">%&#39;)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;preserveAspec</span><span class="kc">t</span><span class="err">Ra</span><span class="kc">t</span><span class="err">io&#39;</span><span class="p">,</span> <span class="err">&#39;xMidYMid</span> <span class="err">mee</span><span class="kc">t</span><span class="err">&#39;)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;viewBox&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">350</span> <span class="mi">270</span><span class="err">&#39;)</span>
+    <span class="err">.appe</span><span class="kc">n</span><span class="err">d(&#39;g&#39;)</span>
+    <span class="err">.a</span><span class="kc">ttr</span><span class="err">(&#39;</span><span class="kc">transf</span><span class="err">orm&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="kc">translate</span><span class="err">(&#39;</span> <span class="err">+</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.le</span><span class="kc">ft</span> <span class="err">+</span> <span class="err">&#39;</span><span class="p">,</span><span class="err">&#39;</span> <span class="err">+</span> <span class="err">margi</span><span class="kc">n</span><span class="err">.</span><span class="kc">t</span><span class="err">op</span> <span class="err">+</span> <span class="err">&#39;)&#39;)</span>
+    <span class="err">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>
+<p>平滑度设置
+<div class="highlight"><pre><span></span><code><span class="err">smoo</span><span class="kc">t</span><span class="err">hvalue</span><span class="p">:</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">()</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.grade</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span> <span class="err">===</span> <span class="err">&#39;mai</span><span class="kc">n</span><span class="err">&#39;)</span> <span class="p">{</span>
+     <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">===</span> <span class="err">&#39;si</span><span class="kc">n</span><span class="err">gle&#39;)</span> <span class="p">{</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.MergeSvgDraw()</span>
+     <span class="p">}</span> <span class="err">else</span> <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">===</span> <span class="err">&#39;double&#39;)</span> <span class="p">{</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.DYMergeSvgDraw()</span>
+     <span class="p">}</span>
+   <span class="p">}</span> <span class="err">else</span> <span class="p">{</span>
+     <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+     <span class="kc">t</span><span class="err">his.SvgDraw()</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>y轴变换
+<div class="highlight"><pre><span></span><code><span class="err">yaxis</span><span class="p">:</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">()</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.grade</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span> <span class="err">===</span> <span class="err">&#39;mai</span><span class="kc">n</span><span class="err">&#39;)</span> <span class="p">{</span>
+     <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">===</span> <span class="err">&#39;si</span><span class="kc">n</span><span class="err">gle&#39;)</span> <span class="p">{</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.MergeSvgDraw()</span>
+     <span class="p">}</span> <span class="err">else</span> <span class="err">i</span><span class="kc">f</span> <span class="err">(</span><span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">===</span> <span class="err">&#39;double&#39;)</span> <span class="p">{</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.DYMergeSvgDraw()</span>
+     <span class="p">}</span>
+   <span class="p">}</span> <span class="err">else</span> <span class="p">{</span>
+     <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+     <span class="kc">t</span><span class="err">his.SvgDraw()</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>合并函数
+<div class="highlight"><pre><span></span><code><span class="err">s</span><span class="kc">tart</span><span class="p">:</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">(val)</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(val)</span> <span class="p">{</span>
+     <span class="err">i</span><span class="kc">f</span> <span class="err">(Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">).le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span> <span class="err">===</span> <span class="mi">1</span><span class="err">)</span> <span class="p">{</span>
+       <span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">=</span> <span class="err">&#39;si</span><span class="kc">n</span><span class="err">gle&#39;</span>
+       <span class="kc">t</span><span class="err">his.lege</span><span class="kc">n</span><span class="err">d</span><span class="kc">nu</span><span class="err">mber</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.checkedorder.le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span>
+       <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span> <span class="err">=</span> <span class="p">[]</span><span class="err">.co</span><span class="kc">n</span><span class="err">ca</span><span class="kc">t</span><span class="err">(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">][</span><span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="err">)</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.MergeSvgDraw()</span>
+     <span class="p">}</span> <span class="err">else</span> <span class="err">i</span><span class="kc">f</span> <span class="err">(Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">).le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span> <span class="err">===</span> <span class="mi">2</span><span class="err">)</span> <span class="p">{</span>
+       <span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">=</span> <span class="err">&#39;double&#39;</span>
+       <span class="kc">t</span><span class="err">his.lege</span><span class="kc">n</span><span class="err">d</span><span class="kc">nu</span><span class="err">mber</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.checkedorder.le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span>
+       <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span><span class="mi">0</span> <span class="err">=</span> <span class="p">[]</span><span class="err">.co</span><span class="kc">n</span><span class="err">ca</span><span class="kc">t</span><span class="err">(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">][</span><span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="err">)</span>
+       <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span><span class="mi">1</span> <span class="err">=</span> <span class="p">[]</span><span class="err">.co</span><span class="kc">n</span><span class="err">ca</span><span class="kc">t</span><span class="err">(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">][</span><span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="err">)</span>
+       <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+       <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">=</span> <span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+       <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="err">=</span> <span class="err">&#39;log(&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">+</span> <span class="err">&#39;)&#39;</span>
+       <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">=</span> <span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.mergedi</span><span class="kc">te</span><span class="err">m</span><span class="p">[</span><span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me</span><span class="p">]</span><span class="err">)</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+       <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="err">=</span> <span class="err">&#39;log(&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">+</span> <span class="err">&#39;)&#39;</span>
+       <span class="kc">t</span><span class="err">his.DYMergeSvgDraw()</span>
+     <span class="p">}</span>
+     <span class="kc">t</span><span class="err">his.se</span><span class="kc">t</span><span class="err">merges</span><span class="kc">te</span><span class="err">p()</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>还原函数
+<div class="highlight"><pre><span></span><code><span class="err">e</span><span class="kc">n</span><span class="err">d</span><span class="p">:</span> <span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">(val)</span> <span class="p">{</span>
+   <span class="err">i</span><span class="kc">f</span> <span class="err">(val)</span> <span class="p">{</span>
+     <span class="kc">t</span><span class="err">his.dele</span><span class="kc">te</span><span class="err">Scalar(</span><span class="kc">t</span><span class="err">his.</span><span class="kc">t</span><span class="err">hisid)</span>
+     <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span> <span class="err">=</span> <span class="p">[]</span>
+     <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span><span class="mi">0</span> <span class="err">=</span> <span class="p">[]</span>
+     <span class="kc">t</span><span class="err">his.mergedda</span><span class="kc">ta</span><span class="mi">1</span> <span class="err">=</span> <span class="p">[]</span>
+     <span class="kc">t</span><span class="err">his.merge</span><span class="kc">t</span><span class="err">ype</span> <span class="err">=</span> <span class="err">&#39;&#39;</span>
+     <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">0</span> <span class="err">=</span> <span class="p">[]</span>
+     <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="mi">1</span> <span class="err">=</span> <span class="p">[]</span>
+     <span class="kc">t</span><span class="err">his.da</span><span class="kc">ta</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.char</span><span class="kc">t</span><span class="err">da</span><span class="kc">ta</span><span class="err">.value</span><span class="p">[</span><span class="err">Objec</span><span class="kc">t</span><span class="err">.keys(</span><span class="kc">t</span><span class="err">his.char</span><span class="kc">t</span><span class="err">da</span><span class="kc">ta</span><span class="err">.value)</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+     <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">=</span> <span class="kc">t</span><span class="err">his.y</span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span>
+     <span class="kc">t</span><span class="err">his.y</span><span class="kc">na</span><span class="err">me</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="err">=</span> <span class="err">&#39;log(&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.y</span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span> <span class="err">+</span> <span class="err">&#39;)&#39;</span>
+     <span class="err">d</span><span class="mf">3.</span><span class="err">selec</span><span class="kc">t</span><span class="err">(&#39;#svg&#39;</span> <span class="err">+</span> <span class="kc">t</span><span class="err">his.class</span><span class="kc">na</span><span class="err">me).remove()</span>
+     <span class="kc">t</span><span class="err">his.SvgDraw()</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ol>
                 
               
               
