@@ -304,3 +304,272 @@ state = {
 ```
 
 
+### 媒体数据功能设计
+
+布局三个标签tag，即音频，图像和文本，根据日志内容是否含有该项数据选择是否显示标签。
+
+#### 音频文件
+
+拖动查看不同step音频
+
+```json
+formatTooltip(val) {
+   if (val === null) {
+     return 0
+   }
+   return this.audiocontent[val]['step']
+}
+```
+
+下载
+
+```json
+downAudio(param) {
+   const filename = 'audio.wav'
+   fetch(param, {
+     headers: new Headers({
+       Origin: location.origin
+     }),
+     mode: 'cors'
+   })
+     .then(res => res.blob())
+     .then(blob => {
+       const blobUrl = window.URL.createObjectURL(blob)
+       this.download(blobUrl, filename)
+       window.URL.revokeObjectURL(blobUrl)
+     })
+}
+```
+
+快进
+
+```json
+changeSpeed() {
+   const index = this.speeds.indexOf(this.audio.speed) + 1
+   this.audio.speed = this.speeds[index % this.speeds.length]
+   this.$refs.audio.playbackRate = this.audio.speed
+}
+```
+
+静音
+
+```json
+startMutedOrNot() {
+   this.$refs.audio.muted = !this.$refs.audio.muted
+   this.audio.muted = this.$refs.audio.muted
+}
+```
+
+#### 图像文件
+
+查看图片
+
+拖动查看不同step图片
+
+```json
+formatTooltip(val) {
+   if (val === null) {
+     return 0
+   }
+   return this.imagecontent[val]['step']
+}
+```
+
+```json
+ischeckedLocal() {
+   this.checked = !this.checked
+   const param = {}
+   param['checked'] = this.checked
+   param['copyToData'] = false
+   param['content'] = this.content
+   this.setImageData(param)
+}
+```
+
+图片放大缩小
+
+```json
+scaleLarge() {
+   this.scaleLargeSmall = true
+   this.size = 24
+}
+scaleSmall() {
+   this.size = 8
+   this.scaleLargeSmall = false
+}
+```
+
+
+
+#### 文本文件
+
+拖动查看不同step文本
+
+```json
+formatTooltip(val) {
+   if (val === null) {
+     return 0
+   }
+   return this.textcontent[val]['step']
+}
+```
+// =================================================================================
+
+
+## 标量数据分析
+
+标量数据分析首先请求后端数据，维护一个state数据。
+
+### 标量数据分析数据
+
+标量数据state数据结构如下
+```json
+const state = {
+  initshowrun: {},
+  categoryInfo: '', // 存放自己的类目信息
+  detailData: {}, // 具体全部数据
+  clickState: false,
+  smoothvalue: 0, // 平滑参数
+  yaxis: 'linear', // y轴数据类型
+  checkeditem: {}, // 选中的数据
+  mergeditem: {}, // 参与合并的数据
+  startmerged: false, // 是否开始合并
+  endmerged: false, // 是否结束合并
+  mergestep: 0, // 合并时执行的步骤
+  backstep: 0, // 还原时执行的步骤
+  checkedorder: [], // 区分主副图表
+  mergednumber: 0, // 合并图表的数量
+  backednumber: [], // 还原图表的数量
+  cleancheck: false,
+  totaltag: {},
+  freshInfo: {},
+  freshnumber: 0,
+  errorMessage: '',
+  downLoadArray: [], // 下载svg图暂存id
+  grade: {},
+  checked: {},
+  mergedorder: {},
+  showFlag: {},
+  subisshow: {},
+  IntervalChange: false // 监听定时刷新功能
+}
+```
+
+### 标量数据展示图绘制
+
+1. 根据加载日志是否含有本类数据显示日志文件类型标签，如loss，mean等数据类型。
+
+2. svg数据图绘制
+
+```json
+SvgDraw() {
+  // load data
+   let data = [].concat(JSON.parse(JSON.stringify(this.data)))
+   ...
+  // set the dimensions and margins of the graph
+   var margin = { top: 20, right: 20, bottom: 70, left: 70 }
+   var width = 350 - margin.left - margin.right
+   var height = 270 - margin.top - margin.bottom
+   ...
+   // Add X axis
+  const xdomain = d3.extent(data, function(d) { return d.step })
+  ...
+  // Add Y axis
+  const ydomain = d3.extent(data, function(d) { return d.value })
+  // append the svg object to the body of the page
+  var svg = d3.select('#' + this.classname)
+    .append('svg')
+    .attr('id', 'svg' + this.classname)
+    .attr('width', '100%')
+    .attr('height', '100%')
+    .attr('preserveAspectRatio', 'xMidYMid meet')
+    .attr('viewBox', '0 0 350 270')
+    .append('g')
+    .attr('transform',
+    'translate(' + margin.left + ',' + margin.top + ')')
+    ...
+}
+```
+
+3. 平滑度设置
+```json
+smoothvalue: function() {
+   if (this.grade[this.classname] === 'main') {
+     if (this.mergetype === 'single') {
+       d3.select('#svg' + this.classname).remove()
+       this.MergeSvgDraw()
+     } else if (this.mergetype === 'double') {
+       d3.select('#svg' + this.classname).remove()
+       this.DYMergeSvgDraw()
+     }
+   } else {
+     d3.select('#svg' + this.classname).remove()
+     this.SvgDraw()
+   }
+}
+```
+
+4. y轴变换
+```json
+yaxis: function() {
+   if (this.grade[this.classname] === 'main') {
+     if (this.mergetype === 'single') {
+       d3.select('#svg' + this.classname).remove()
+       this.MergeSvgDraw()
+     } else if (this.mergetype === 'double') {
+       d3.select('#svg' + this.classname).remove()
+       this.DYMergeSvgDraw()
+     }
+   } else {
+     d3.select('#svg' + this.classname).remove()
+     this.SvgDraw()
+   }
+}
+```
+
+5. 合并函数
+```json
+start: function(val) {
+   if (val) {
+     if (Object.keys(this.mergeditem[this.classname]).length === 1) {
+       this.mergetype = 'single'
+       this.legendnumber = this.checkedorder.length
+       this.mergeddata = [].concat(this.mergeditem[this.classname][Object.keys(this.mergeditem[this.classname])[0]])
+       d3.select('#svg' + this.classname).remove()
+       this.MergeSvgDraw()
+     } else if (Object.keys(this.mergeditem[this.classname]).length === 2) {
+       this.mergetype = 'double'
+       this.legendnumber = this.checkedorder.length
+       this.mergeddata0 = [].concat(this.mergeditem[this.classname][Object.keys(this.mergeditem[this.classname])[0]])
+       this.mergeddata1 = [].concat(this.mergeditem[this.classname][Object.keys(this.mergeditem[this.classname])[1]])
+       d3.select('#svg' + this.classname).remove()
+       this.yname0[0] = Object.keys(this.mergeditem[this.classname])[0]
+       this.yname0[1] = 'log(' + this.yname0[0] + ')'
+       this.yname1[0] = Object.keys(this.mergeditem[this.classname])[1]
+       this.yname1[1] = 'log(' + this.yname1[0] + ')'
+       this.DYMergeSvgDraw()
+     }
+     this.setmergestep()
+   }
+}
+```
+
+6. 还原函数
+```json
+end: function(val) {
+   if (val) {
+     this.deleteScalar(this.thisid)
+     this.mergeddata = []
+     this.mergeddata0 = []
+     this.mergeddata1 = []
+     this.mergetype = ''
+     this.yname0 = []
+     this.yname1 = []
+     this.data = this.chartdata.value[Object.keys(this.chartdata.value)[0]]
+     this.yname[0] = this.ytext
+     this.yname[1] = 'log(' + this.ytext + ')'
+     d3.select('#svg' + this.classname).remove()
+     this.SvgDraw()
+   }
+}
+```
