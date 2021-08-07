@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -247,7 +252,7 @@
   
     <li class="md-tabs__item">
       <a href="../../thanks/license/" class="md-tabs__link">
-        致谢
+        开源软件许可
       </a>
     </li>
   
@@ -691,10 +696,70 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          可视化后端启动选项
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         可视化后端启动选项
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#runserver" class="md-nav__link">
+    runserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate" class="md-nav__link">
+    migrate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查看版本和提交号
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看命令行参数帮助
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -705,8 +770,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../bugs/" class="md-nav__link">
-        Bug反馈
+      <a href="../contribute/" class="md-nav__link">
+        参与贡献
       </a>
     </li>
   
@@ -732,13 +797,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        致谢
+        开源软件许可
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="致谢" data-md-level="1">
+      <nav class="md-nav" aria-label="开源软件许可" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          致谢
+          开源软件许可
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -767,6 +832,66 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#runserver" class="md-nav__link">
+    runserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate" class="md-nav__link">
+    migrate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查看版本和提交号
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看命令行参数帮助
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -777,9 +902,48 @@
                   </a>
                 
                 
-                  <h1>可视化后端启动选项</h1>
-                
-                
+                <h1 id="_1">可视化后端启动选项</h1>
+<p>目前zjvis公开了三个子命令<code>runserver</code>, <code>test</code>, <code>migrate</code>，下面将分别介绍这三个子命令及其参数</p>
+<h2 id="runserver"><code>runserver</code></h2>
+<p>该命令是启动zjvis后端的命令，如果用户在不指定子命令的情况下，该命令会被默认执行。</p>
+<p>其中包含的选项有</p>
+<ul>
+<li><code>--logdir</code>，必选参数，该参数指定可视化日志所在的文件夹，并在启动后会监听该文件夹中文件的变化。</li>
+</ul>
+<div class="admonition tip 注意">
+<p class="admonition-title">Tip</p>
+<p>若指定的文件夹不存在则zjvis会自动退出</p>
+</div>
+<ul>
+<li><code>--port</code>，可选参数，该参数指定zjvis服务在哪个端口启动。该参数的默认值为9898，也就是说，默认情况下zjvis会启动在9898端口。</li>
+</ul>
+<h2 id="test"><code>test</code></h2>
+<p>该命令运行zjvis单元测试，其包含的选项有</p>
+<ul>
+<li>
+<p><code>--testdir</code>，必须参数，该参数指定单元测试使用日志所在的文件夹，并在启动后会监听该文件夹中文件的变化。</p>
+</li>
+<li>
+<p><code>testcase</code>，必须参数，该参数指定运行单元测试的模块名</p>
+</li>
+</ul>
+<h2 id="migrate"><code>migrate</code></h2>
+<p>该命令是为了初始化Django服务使用的，若未运行该命令，启动zjvis时会得到Django的警告</p>
+<div class="highlight"><pre><span></span><code>You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+</code></pre></div>
+<p>该警告不影响zjvis的正常工作，若需要移除该警告则运行一次该命令即可。</p>
+<h2 id="_2">查看版本和提交号</h2>
+<ul>
+<li><code>--version</code>, <code>-v</code></li>
+</ul>
+<p>zjvis还提供了查看版本号的选项，该选项只在未指定子命令的情况下可用，如</p>
+<div class="highlight"><pre><span></span><code>$ zjvis -v
+</code></pre></div>
+<h2 id="_3">查看命令行参数帮助</h2>
+<ul>
+<li><code>--help</code>, <code>-h</code></li>
+</ul>
+<p>用户可以通过该选项在控制台查看命令行参数的帮助说明。</p>
                 
               
               
@@ -815,13 +979,13 @@
       
       
         
-        <a href="../bugs/" class="md-footer__link md-footer__link--next" aria-label="下一页: Bug反馈" rel="next">
+        <a href="../contribute/" class="md-footer__link md-footer__link--next" aria-label="下一页: 参与贡献" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Bug反馈
+              参与贡献
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -836,7 +1000,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2015 - 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
           </div>
         
         Made with
