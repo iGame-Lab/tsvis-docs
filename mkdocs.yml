@@ -5,7 +5,7 @@ repo_url: https://github.com/iGame-Lab/zjvis
 edit_uri: "blob/master/docs/"
 
 # Copyright
-copyright: Copyright &copy; 2015 - 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+copyright: Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
 
 theme:
   name: material
@@ -57,7 +57,7 @@ nav:
       - 异常检测数据: write_log/write_exception.md
 
     - 使用可视化组件:
-      - 主界面:     use_visualization/overall.md
+      - 主界面:   use_visualization/overall.md
       - 模型结构: use_visualization/graph.md
       - 标量数据: use_visualization/scalar.md
       - 媒体数据: use_visualization/media.md
@@ -71,7 +71,7 @@ nav:
       - 后端请求API: developer/api.md
       - 可视化前端: developer/frontend.md
       - 可视化后端启动选项: developer/commandline_for_backend.md
-      - Bug反馈: developer/bugs.md
+      - 参与贡献: developer/contribute.md
 
-    - 致谢:
+    - 开源软件许可:
       - 开源软件: thanks/license.md

@@ -10,20 +10,20 @@
 
 
 ## 功能操作说明
-### 1. 支持数据图[放大]、[还原]、[选中]
+### 支持数据图[放大]、[还原]、[选中]
 
 
 ![scalar_global_zoom](./images/scalar/scalar_global_zoom.png)
 
 
 
-### 2. 支持选取局部区域放大，双击还原
+### 支持选取局部区域放大，双击还原
 
 
 ![scalar_local_zoom](./images/scalar/scalar_local_zoom.gif)
 
 
-### 3. 数据点Hover展示详细信息
+### 数据点Hover展示详细信息
 
 wall_time:训练绝对时间
 
@@ -37,7 +37,7 @@ value:训练过程标量值
 ![scalar_hover](./images/scalar/scalar_hover.png)
 
 
-### 4. 控制面板
+### 控制面板
 
 
 ![scalar_control_panel](./images/scalar/scalar_control_panel.png)
@@ -63,7 +63,7 @@ value:训练过程标量值
 
 
 
-### 5. 数据图合并与还原
+### 数据图合并与还原
 
 
 用户可以勾选两张数据图，点击合并按钮，生成合并数据图，观察比较曲线变化。点击还原按钮，恢复多张原图（目前支持两张图的合并，多选会提示超出选择限制）。
@@ -72,7 +72,7 @@ value:训练过程标量值
 ![scalar_merge](./images/scalar/scalar_merge.gif){ .img-fluid }
 
 
-### 6. 用户定制
+### 用户定制
 
 
 用户可勾选标量数据里的多张数据图，点击用户定制按钮，跳转到用户定制界面进行分析。
