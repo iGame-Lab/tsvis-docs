@@ -56,3 +56,11 @@ pip install setuptools
 ```
 python setup.py install
 ```
+
+### 验证安装
+
+安装完成之后，可以通过下面的命令查看当前安装版本号，若安装成功，则会输出版本信息到控制台
+
+```
+zjvis -v
+```
