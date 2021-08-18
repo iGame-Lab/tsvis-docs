@@ -67,3 +67,83 @@ https://github.com/bastibe/python-soundfile
 Copyright (c) 2013, Bastian Bechtold. All rights reserved.
 
 python-soundfile is BSD licensed (BSD 3-Clause License); https://github.com/bastibe/python-soundfile/blob/master/LICENSE
+
+### Vue.js
+
+https://github.com/vuejs/vue
+
+Copyright (c) 2013-present, Yuxi (Evan) You.
+
+Licensed under The MIT License (MIT). https://github.com/vuejs/vue/blob/master/LICENSE
+
+### Vuex
+
+https://github.com/vuejs/vuex
+
+Copyright (c) 2015-present Evan You
+
+Licensed under The MIT License (MIT); https://github.com/vuejs/vuex/blob/dev/LICENSE
+
+### D3
+
+https://github.com/d3/d3
+
+Copyright 2010-2021 Mike Bostock.
+
+Licensed under the ISC License; https://github.com/d3/d3/blob/main/LICENSE
+
+### axios
+
+https://github.com/axios/axios
+
+Copyright (c) 2014-present Matt Zabriskie
+
+Licensed under The MIT License (MIT); https://github.com/axios/axios/blob/master/LICENSE
+
+### dagre-d3
+
+https://github.com/dagrejs/dagre-d3
+
+Copyright (c) 2013 Chris Pettitt
+
+dagre-d3 is licensed under the terms of the MIT License; https://github.com/dagrejs/dagre-d3/blob/master/LICENSE
+
+### Element
+
+https://github.com/ElemeFE/element
+
+Copyright (c) 2016-present ElemeFE
+
+Licensed under The MIT License (MIT); https://github.com/ElemeFE/element/blob/master/LICENSE
+
+### jQuery
+
+https://github.com/jquery/jquery
+
+Copyright OpenJS Foundation and other contributors, https://openjsf.org/
+
+Licensed under The MIT License (MIT); https://github.com/jquery/jquery/blob/main/LICENSE.txt
+
+### json2csv
+
+https://github.com/zemirco/json2csv
+
+Copyright (C) 2012 Mirco Zeiss
+
+Licensed under The MIT License (MIT); https://github.com/zemirco/json2csv/blob/master/LICENSE.md
+
+### FileSaver.js
+
+https://github.com/eligrey/FileSaver.js
+
+Copyright © 2016 Eli Grey.
+
+Licensed under The MIT License (MIT); https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
+
+### NProgress
+
+https://github.com/rstacruz/nprogress
+
+Copyright (c) 2013-2014 Rico Sta. Cruz
+
+Licensed under The MIT License (MIT); https://github.com/rstacruz/nprogress/blob/master/License.md
