@@ -147,3 +147,13 @@ https://github.com/rstacruz/nprogress
 Copyright (c) 2013-2014 Rico Sta. Cruz
 
 Licensed under The MIT License (MIT); https://github.com/rstacruz/nprogress/blob/master/License.md
+
+
+### ECharts
+
+https://github.com/apache/echarts
+
+ECharts is available under the Apache License V2.; https://github.com/apache/echarts/blob/master/LICENSE
+
+
+
