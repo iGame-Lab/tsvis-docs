@@ -5,7 +5,7 @@
 在命令行执行命令
 
 ```
-zjvis --logdir path/to/logdir/
+tsvis --logdir path/to/logdir/
 ```
 
 命令行输出如下则启动可视化服务成功

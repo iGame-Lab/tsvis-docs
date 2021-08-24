@@ -1,6 +1,6 @@
 # 快速上手
 
-在本节中，你将了解到如何快速使用zjvis，帮助你完成zjvis中的第一个"Hello World"。在内容安排上，
+在本节中，你将了解到如何快速使用TS-VIS，帮助你完成TS-VIS中的第一个"Hello World"。在内容安排上，
 本节先介绍如何在Python脚本中写入可视化日志，接着展示了如何加载日志并进行可视化。
 
 ## 从导出识别手写数字Mnist可视化日志开始
@@ -17,7 +17,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-from zjvis import SummaryWriter
+from tsvis import SummaryWriter
 
 class Minist(nn.Module):
     def __init__(self):
@@ -128,6 +128,6 @@ def train(epochs=10):
 ```
 
 在上面的代码中，我们添加了除异常检测`exception`外的所有类型，导出的日志将会保存在当前脚本目录`./logs/torch/`文件夹下。
-上述例子的完整代码可以在[这里](https://github.com/iGame-Lab/zjvis/blob/master/zjvis/oneflow/demo/demo_pytorch.py)获得。
+上述例子的完整代码可以在[这里](https://github.com/iGame-Lab/TS-VIS/blob/master/tsvis/logger/demo/demo_pytorch.py)获得。
 
 [下一节](run_visual.md)我们将介绍如何加载导出的日志并在浏览器查看可视化
