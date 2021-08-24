@@ -2,7 +2,7 @@
 
 ## 什么是TS-VIS
 
-TS-VIS（天枢Vis）是[天枢人工智能开源开放平台](https://gitee.com/zhijiangtianshu/Dubhe)的可视化组件，支持目前主流深度学习框架的可视化
+TS-VIS（天枢Vis）是[天枢人工智能开源开放平台](https://gitee.com/zhijiangtianshu/Dubhe)的可视化组件，支持Tensorflow、Pytorch、Oneflow等主流深度学习框架的可视化功能
 
 ![](quick_start/images/demo.gif)
 
@@ -37,3 +37,9 @@ TS-VIS（天枢Vis）是[天枢人工智能开源开放平台](https://gitee.com
 [开发者文档](developer/api.md)提供了一些针对开发者的说明，包括所有可视化后端API请求参数及返回结果，TS-VIS的启动方式等。如果你发现了一些Bug，你也可以在该章节下找到Bug反馈的方式。
 
 希望TS-VIS可以帮助你在深度学习的旅程中乘风破浪！
+
+## 版权
+
+TS-VIS 由杭州电子科技大学智能可视建模与仿真实验室(iGame Lab)和之江实验室(Zhejiang Lab)联合开发
+
+Copyright © 2021 [iGame](http://igame.hdu.edu.cn/) & [Zhejiang](https://www.zhejianglab.com/) Lab
