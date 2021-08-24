@@ -1,6 +1,6 @@
 # 统计分析使用教程
 
-![statistic](C:\Users\qiqi\Desktop\zjvis-docs\docs\use_visualization\images\statistic\statistic.gif)
+![statistic](images/statistic/statistic.gif)
 
 ## 模块简介
 

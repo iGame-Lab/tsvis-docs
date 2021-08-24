@@ -1,6 +1,6 @@
 # 异常检测使用教程
 
-![exception](C:\Users\qiqi\Desktop\zjvis-docs\docs\use_visualization\images\exception\exception.gif)
+![exception](images/exception/exception.gif)
 
 ## 模块简介
 
