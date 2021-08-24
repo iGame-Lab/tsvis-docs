@@ -14,7 +14,7 @@
     
     
       
-        <title>快速上手 - Zjvis</title>
+        <title>快速上手 - TS-VIS</title>
       
     
     
@@ -80,7 +80,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Zjvis" class="md-header__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-header__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Zjvis
+            TS-VIS
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -278,13 +278,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Zjvis" class="md-nav__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-nav__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Zjvis
+    TS-VIS
   </label>
   
     <div class="md-nav__source">
@@ -887,7 +887,7 @@
                 
                 
                 <h1 id="_1">快速上手</h1>
-<p>在本节中，你将了解到如何快速使用zjvis，帮助你完成zjvis中的第一个"Hello World"。在内容安排上，
+<p>在本节中，你将了解到如何快速使用TS-VIS，帮助你完成TS-VIS中的第一个"Hello World"。在内容安排上，
 本节先介绍如何在Python脚本中写入可视化日志，接着展示了如何加载日志并进行可视化。</p>
 <h2 id="mnist">从导出识别手写数字Mnist可视化日志开始</h2>
 <p>为了方便大多数深度学习用户接受，在本文中我们选择了使用最广泛的Pytorch框架作为示例。现在让我们从最简单的手写数字识别Mnist开始。</p>
@@ -898,7 +898,7 @@
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
 <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
-<span class="kn">from</span> <span class="nn">zjvis</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+<span class="kn">from</span> <span class="nn">tsvis</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
 
 <span class="k">class</span> <span class="nc">Minist</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1003,7 +1003,7 @@
                 <span class="n">summarywriter</span><span class="o">.</span><span class="n">add_embedding</span><span class="p">(</span><span class="s1">&#39;minist&#39;</span><span class="p">,</span><span class="n">test_out</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">test_y</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">step</span><span class="p">)</span>
 </code></pre></div>
 <p>在上面的代码中，我们添加了除异常检测<code>exception</code>外的所有类型，导出的日志将会保存在当前脚本目录<code>./logs/torch/</code>文件夹下。
-上述例子的完整代码可以在<a href="https://github.com/iGame-Lab/zjvis/blob/master/zjvis/oneflow/demo/demo_pytorch.py">这里</a>获得。</p>
+上述例子的完整代码可以在<a href="https://github.com/iGame-Lab/TS-VIS/blob/master/tsvis/logger/demo/demo_pytorch.py">这里</a>获得。</p>
 <p><a href="../run_visual/">下一节</a>我们将介绍如何加载导出的日志并在浏览器查看可视化</p>
                 
               
@@ -1061,7 +1061,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a> <br/> TS-VIS 由杭州电子科技大学智能可视建模与仿真实验室(iGame Lab)和之江实验室(Zhejiang Lab)联合开发
           </div>
         
         Made with

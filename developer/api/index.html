@@ -14,7 +14,7 @@
     
     
       
-        <title>后端请求API - Zjvis</title>
+        <title>后端请求API - TS-VIS</title>
       
     
     
@@ -80,7 +80,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Zjvis" class="md-header__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-header__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Zjvis
+            TS-VIS
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -278,13 +278,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Zjvis" class="md-nav__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-nav__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Zjvis
+    TS-VIS
   </label>
   
     <div class="md-nav__source">
@@ -1016,7 +1016,7 @@
                 
                 <h1 id="api">后端请求API</h1>
 <h2 id="_1">说明</h2>
-<p>Zjvis在设计和开发方式上采用RESTful风格，前后端分离，对外提供的是数据资源的访问接口。在返回的数据格式上，所有的API均采用一下的格式</p>
+<p>TS-VIS在设计和开发方式上采用RESTful风格，前后端分离，对外提供的是数据资源的访问接口。在返回的数据格式上，所有的API均采用一下的格式</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="err">code</span><span class="p">,</span> 
   <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
@@ -1053,7 +1053,7 @@
 <div class="highlight"><pre><span></span><code>/api/init
 </code></pre></div>
 </div>
-<p>当用户首次打开zjvis前端页面时，需要先访问后端初始化API。该API会通知后端解析用户指定路径的日志文件。
+<p>当用户首次打开TS-VIS前端页面时，需要先访问后端初始化API。该API会通知后端解析用户指定路径的日志文件。
 待后端完成全部的日志解析后，则返回：
 <div class="highlight"><pre><span></span><code>{&quot;code&quot;: 200, &quot;msg&quot;: &quot;ok&quot;, &quot;data&quot;: {&quot;msg&quot;: &quot;success&quot;}}
 </code></pre></div></p>
@@ -1097,7 +1097,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="graph">模型结构Graph</h2>
-<p>zjvis中支持两种方式的模型结构，一种是包含计算节点的计算图(Calculation graph)，另一种是只有网络结构的结构图(Structer graph)</p>
+<p>TS-VIS中支持两种方式的模型结构，一种是包含计算节点的计算图(Calculation graph)，另一种是只有网络结构的结构图(Structer graph)</p>
 <div class="admonition 资源访问路径">
 <p class="admonition-title">资源访问路径</p>
 <div class="highlight"><pre><span></span><code>/api/graph?run={run}&amp;tag={tag}
@@ -1494,7 +1494,7 @@ api/hyperparm?run={run}</code></p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a> <br/> TS-VIS 由杭州电子科技大学智能可视建模与仿真实验室(iGame Lab)和之江实验室(Zhejiang Lab)联合开发
           </div>
         
         Made with

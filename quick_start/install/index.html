@@ -14,7 +14,7 @@
     
     
       
-        <title>安装 - Zjvis</title>
+        <title>安装 - TS-VIS</title>
       
     
     
@@ -80,7 +80,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Zjvis" class="md-header__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-header__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -93,7 +93,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Zjvis
+            TS-VIS
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -278,13 +278,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Zjvis" class="md-nav__button md-logo" aria-label="Zjvis" data-md-component="logo">
+    <a href="../.." title="TS-VIS" class="md-nav__button md-logo" aria-label="TS-VIS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Zjvis
+    TS-VIS
   </label>
   
     <div class="md-nav__source">
@@ -915,7 +915,7 @@
                 
                 
                 <h1 id="_1">安装指南</h1>
-<p>本节将介绍如何安装zjvis，我们提供了两种安装方式：</p>
+<p>本节将介绍如何安装TS-VIS，我们提供了两种安装方式：</p>
 <ul>
 <li>pip安装</li>
 <li>从源码安装</li>
@@ -927,30 +927,30 @@
 <p>为了方便，我们建议使用pip安装方式（暂未上线）</p>
 </div>
 <p>安装命令</p>
-<div class="highlight"><pre><span></span><code>pip install zjvis
+<div class="highlight"><pre><span></span><code>pip install tsvis
 </code></pre></div>
 <h2 id="_2">从源码安装</h2>
 <h3 id="_3">从源码编译前端</h3>
 <p>首先安装依赖</p>
 <div class="highlight"><pre><span></span><code>npm install
 </code></pre></div>
-<p>然后修改<code>zjvis/webapp/src/utils/constants.js</code>文件内参数</p>
+<p>然后修改<code>tsvis/webapp/src/utils/constants.js</code>文件内参数</p>
 <div class="highlight"><pre><span></span><code>const DJANGOHOSTNAME = &#39;&#39;
 </code></pre></div>
 <p>使用命令打包前端生成静态文件</p>
 <div class="highlight"><pre><span></span><code>npm run build
 </code></pre></div>
 <h3 id="_4">从源码安装后端</h3>
-<p>从源码安装后端需要先将前端编译生成的静态文件移动到<code>zjvis/server/frontend</code>文件夹下</p>
+<p>从源码安装后端需要先将前端编译生成的静态文件移动到<code>tsvis/server/frontend</code>文件夹下</p>
 <p>然后安装Python依赖包<code>setuptools</code></p>
 <div class="highlight"><pre><span></span><code>pip install setuptools
 </code></pre></div>
-<p>执行<code>setup.py</code>文件安装zjvis到Python环境</p>
+<p>执行<code>setup.py</code>文件安装TS-VIS到Python环境</p>
 <div class="highlight"><pre><span></span><code>python setup.py install
 </code></pre></div>
 <h3 id="_5">验证安装</h3>
 <p>安装完成之后，可以通过下面的命令查看当前安装版本号，若安装成功，则会输出版本信息到控制台</p>
-<div class="highlight"><pre><span></span><code>zjvis -v
+<div class="highlight"><pre><span></span><code>tsvis -v
 </code></pre></div>
                 
               
@@ -1008,7 +1008,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a>
+            Copyright &copy; 2021 <a href="http://igame.hdu.edu.cn/" target="_blank">iGame</a> & <a href="https://www.zhejianglab.com/"  target="_blank">Zhejiang Lab</a> <br/> TS-VIS 由杭州电子科技大学智能可视建模与仿真实验室(iGame Lab)和之江实验室(Zhejiang Lab)联合开发
           </div>
         
         Made with
