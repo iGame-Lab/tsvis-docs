@@ -1,4 +1,5 @@
 # 超参分析使用教程
+![](./images/hyperparm/hparams.gif)
 
 ## 模块简介
 
