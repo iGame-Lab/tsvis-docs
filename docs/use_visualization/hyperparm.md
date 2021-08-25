@@ -1,5 +1,5 @@
 # 超参分析使用教程
-![](./images/hyperparm/hparams.gif)
+![](./images/hyperparm/hparams.gif){ .img-fluid }
 
 ## 模块简介
 
