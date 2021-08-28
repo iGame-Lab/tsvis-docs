@@ -71,6 +71,7 @@ nav:
       - 后端请求API: developer/api.md
       - 可视化前端: developer/frontend.md
       - 可视化后端启动选项: developer/commandline_for_backend.md
+      - 更新记录: developer/changelog.md
       - 参与贡献: developer/contribute.md
 
     - 开源软件许可:
