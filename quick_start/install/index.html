@@ -776,8 +776,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/changelog/" class="md-nav__link">
-        更新记录
+      <a href="../../developer/contribute/" class="md-nav__link">
+        参与贡献
       </a>
     </li>
   
@@ -788,8 +788,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/contribute/" class="md-nav__link">
-        参与贡献
+      <a href="../../developer/changelog/" class="md-nav__link">
+        更新记录
       </a>
     </li>
   
@@ -932,22 +932,21 @@
 <li>pip安装</li>
 <li>从源码安装</li>
 </ul>
-<p>不管通过那种方式安装，都需要确保你的Python版本为3.6以上，如果不满足请先升级Python</p>
+<p>不管通过哪种方式安装，都需要确保你的Python版本为3.6以上，如果不满足请先升级Python</p>
 <h2 id="pip">使用pip安装</h2>
 <div class="admonition 建议">
 <p class="admonition-title">建议</p>
-<p>为了方便，我们建议使用pip安装方式（暂未上线）</p>
+<p>为了方便，我们建议使用pip安装方式</p>
 </div>
 <p>安装命令</p>
 <div class="highlight"><pre><span></span><code>pip install tsvis
 </code></pre></div>
 <h2 id="_2">从源码安装</h2>
+<p>TS-VIS采用前后端分离的架构，所以从源码安装需要分别编译前端、后端</p>
 <h3 id="_3">从源码编译前端</h3>
 <p>首先安装依赖</p>
-<div class="highlight"><pre><span></span><code>npm install
-</code></pre></div>
-<p>然后修改<code>tsvis/webapp/src/utils/constants.js</code>文件内参数</p>
-<div class="highlight"><pre><span></span><code>const DJANGOHOSTNAME = &#39;&#39;
+<div class="highlight"><pre><span></span><code>cd webapp
+npm install
 </code></pre></div>
 <p>使用命令打包前端生成静态文件</p>
 <div class="highlight"><pre><span></span><code>npm run build
