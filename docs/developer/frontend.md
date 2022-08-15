@@ -106,7 +106,7 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 
 
 
-// =================================================================================
+ =================================================================================
 
 ## 降维分析
 
@@ -176,7 +176,7 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 
 
 
-// =================================================================================
+//=================================================================================
 
 ## 超参数分析
 
@@ -571,5 +571,375 @@ end: function(val) {
      d3.select('#svg' + this.classname).remove()
      this.SvgDraw()
    }
+}
+```
+// =================================================================================
+
+
+## 注意力分析
+
+### 注意力分析数据结构
+
+注意力分析state数据结构如下
+```json
+state = {
+  categoryInfo: "",
+  sentences: [],
+  allData: {},
+  attention: {},
+  defaultFilter: "all",
+  bidirectional: true,
+  displayMode: "light",
+  defaultLayer: 0,
+  defaultHead: 0,
+  errorMessage: "",
+  attentionInfoData: [],
+  attentionLayers: [],
+  selectedLH: "00-00",
+  selectImgTag: "",
+  selectLayer: [],
+  selectX: "0",
+  selectY: "0",
+  selectG: "1",
+  selectR: "1",
+  originImg: "",
+  attnMap: {},
+  layerNumber: 0,
+  chartWidthScale: 1,
+  chartHeightScale: 1
+}
+```
+
+### 注意力分析功能划分
+通过监听日志解析transformer文件下是否含有特定标识来判断是否包含文本或者图像注意力数据文件，再分别进行渲染绘制。
+
+### 文本注意力
+
+### 统计信息表绘制
+通过向后端请求注意力数据allData，再进行封装处理，维护attentionInfoData，使用Element-UI组件进行绘制。
+
+### 统计信息图绘制
+通过向后端请求注意力数据allData，再进行封装处理，维护attentionInfoData，使用d3.js进行环形图的绘制。
+```json
+drawRadialBar (data) {
+  ...
+  const container = svg.append('g')
+    .attr('class', 'container')
+    .attr('transform', `translate(${width / 2},${height / 2})`)
+    .style('font-size', 10)
+    .style('font-family', 'sans-serif');
+
+  container
+    .selectAll('path')
+    .data(data)
+    .join('path')
+    .style('fill', d => color(d.vari))
+    .style('stroke', d => color(d.vari))
+    .attr('d', arc)
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave)
+    .on("click", mouseclick);
+
+  container.append('g')
+    .call(xAxis);
+
+  container.append('g')
+    .call(yAxis);
+  ...
+}
+```
+
+### AttentionVis绘制
+通过向后端请求注意力数据allData，再进行封装处理，通过d3.js绘制折线图及网格图展示单个注意力头的具体内容。
+```json
+render () {
+  ...
+  this.renderText(attentionLines, leftText, "leftText", posLeftText);
+  this.renderAttentionLines(attentionLines, posAttention, posRightText);
+  this.renderText(attentionLines, rightText, "rightText", posRightText);
+  ...
+  this.renderMatrix(svg, filterData);
+  ...
+}
+
+renderText (svg, text, id, leftPos) {
+  ...
+  wordContainer
+    .append("rect")
+    .classed("highlight", true)
+    .attr("fill", fillColor)
+    .style("opacity", 0.0)
+    .attr("height", TEXTBOXHEIGHT)
+    .attr("width", TEXTBOXWIDTH)
+    .attr("x", leftPos)
+    .attr("y", function (d, i) {
+      return i * TEXTBOXHEIGHT + TEXTBOX_HEIGHT - 1;
+    });
+
+  ...
+
+  let textContainer = wordContainer
+    .append("text")
+    .classed("token", true)
+    .text(function (d) {
+      return d;
+    })
+    .attr("font-size", TEXT_SIZE + "px")
+    .style("fill", this.getColor("text"))
+    .style("cursor", "default")
+    .style("-webkit-user-select", "none")
+    .attr("x", leftPos + offset)
+    .attr("y", function (d, i) {
+      return i * TEXTBOXHEIGHT + TEXTBOX_HEIGHT;
+    })
+    .attr("height", TEXTBOXHEIGHT)
+    .attr("width", TEXTBOXWIDTH)
+    .attr("dy", TEXT_SIZE);
+    
+  ...
+}
+
+
+renderAttentionLines (svg, start_pos, end_pos) {
+  ...
+
+  attentionContainer
+    .selectAll("g")
+    .data(attentionMatrix)
+    .enter()
+    .append("g")
+    .classed("attention-line-group", true)
+    .attr("source-index", function (d, i) {
+      return i;
+    })
+    .selectAll("line")
+    .data(function (d) {
+      return d;
+    })
+    .enter()
+    .append("line")
+    .attr("x1", start_pos)
+    .attr("y1", function (d) {
+      let sourceIndex = +this.parentNode.getAttribute("source-index");
+      return sourceIndex * TEXTBOXHEIGHT + TEXTBOX_HEIGHT + TEXTBOXHEIGHT / 2;
+    })
+    .attr("x2", end_pos)
+    .attr("y2", function (d, targetIndex) {
+      return targetIndex * TEXTBOXHEIGHT + TEXTBOX_HEIGHT + TEXTBOXHEIGHT / 2;
+    })
+    .attr("stroke-width", 2)
+    .attr("stroke", this.getColor("attn"))
+    .attr("stroke-opacity", function (d) {
+      return d;
+    })
+}
+
+
+renderMatrix (svg, filterData) {
+  ...
+
+  for (let i = 0; i < axisData.length; i++) {
+    axisSpace.push(i * MATRIX_CELL_WIDTH);
+  }
+
+  ...
+
+  xAxisBox
+    .attr(
+      "transform",
+      `translate(${yAxisWidth + (MATRIX_CELL_WIDTH - 2) / 2 + 80},${xAxisHeight})`
+    )
+    .call(xAxis)
+    .selectAll("text")
+    .attr("fill", "#000")
+    .style("font-size", "12")
+    .style("font-weight", "500")
+    .style("text-anchor", "start")
+    .attr("dx", "0.7em")
+    .attr("dy", "0.4em")
+    .attr("transform", "rotate(-65)");
+  
+  ...
+
+  for (let i = 0; i < matrixData.length; i++) {
+    for (let j = 0; j < matrixData[0].length; j++) {
+      let fill = this.getMatrixColor(matrixData[i][j], maxAttn, minAttn);
+      svg
+        .append("g")
+        .append("rect")
+        .attr("width", MATRIX_CELL_WIDTH - 2 + "px")
+        .attr("height", MATRIX_CELL_WIDTH - 2 + "px")
+        .attr("fill", "#" + fill)
+        .attr("x", yAxisWidth + j * MATRIX_CELL_WIDTH + "px")
+        .attr("y", xAxisHeight + i * MATRIX_CELL_WIDTH + "px")
+        .attr("id", `attention_${i}_${j}`)
+        .attr("transform", `translate(80, 0)`)
+    }
+  }
+
+  ...
+}
+```
+// =================================================================================
+
+
+## 隐状态分析
+
+### 隐状态分析数据结构
+
+隐状态分析state数据结构如下
+```json
+state = {
+  errorMessage: "",
+  stateRun: "",
+  stateTag: "",
+  sentenceTag: "hidden_state_word",
+  stateData: null,
+  sentence: [],
+  rightWordsLength: 0,
+  maxValue: 1,
+  minValue: -1,
+  pos: 0,
+  range: 27,
+  threshold: 0,
+  selectedLineIndexs: [],
+  selectedRange: [],
+  signature: "",
+  stateMatchData: []
+};
+```
+
+### 隐状态分析功能划分
+
+#### 折线区域绘制
+通过向后端请求隐状态数据，通过前端数据组装成符合绘制要求的数据模式，通过d3.js绘制折线图。
+
+1. 折线区域绘制函数
+```json
+drawStateVisBox () {
+  ...
+  this.drawValueLines(main, this.jointData, lineGenerator, lineOpacity);
+  ...
+}
+
+drawValueLines (container, data, lineGenerator, lineOpacity) {
+  const valueLines = container.selectAll('.valueLine').data(data);
+  valueLines.exit().remove();
+
+  return valueLines
+    .enter()
+    .append("path")
+    .merge(valueLines)
+    .attr("class", d => "valueLine id_" + d.dim)
+    .attr("d", d => lineGenerator(d.value))
+    .style("opacity", lineOpacity);
+}
+```   
+
+2. 文本区域绘制函数
+```json
+drawStateVisAxis () {
+  ...
+  wordCellList
+    .attr("class", d => `word noselect word_${d.index}`)
+    .attr('transform', (d, i) => `translate(${xScale(i) + 35}, 0)`);
+  wordCellList.select('rect')
+    .attr("y", 0)
+    .attr("width", 30)
+    .attr("height", 24);
+  wordCellList.select('text')
+    .text(d => d.text)
+  ...
+}
+``` 
+
+3. 滑动brush绘制函数
+通过d3.brushX绘制x轴方向上的区域选择刷，通过d3.drag更新严格小于区域的绘制。
+```json
+renderBrush (brush, bottomBrush, xScale) {
+  ...
+  const brushing = () => {
+    ...
+  }
+
+  const brushStart = () => {
+    ...
+  }
+
+  const brushEnd = () => {
+    ...
+  }
+
+  const brushX = d3.brushX()
+    .extent([[xScale.range()[0], 4], [xScale.range()[1], 20]])
+    .on("start", brushStart)
+    .on("brush", brushing)
+    .on("end", brushEnd)
+
+  ...
+
+  this.renderBottomBrush(bottomBrush, xScale);
+}
+
+renderBottomBrush(bottomBrush, xScale){
+  const dragging = () => {
+    ...
+  }
+
+  const dragEnd = () => {
+    ...
+  }
+
+  ...
+  zHandles.enter().append("circle").attr("class", d => "zeroDeco zeroHandle handle-" + d.handle)
+    .merge(zHandles)
+    .attr("cx", d => xScale(d[d.handle]))
+    .attr("cy", 15)
+    .attr("r", 5)
+    .call(d3.drag()
+      .on("drag", dragging)
+      .on("end", dragEnd)
+    )
+  ...
+}
+```  
+
+4. 匹配函数
+通过监听匹配模式的变化，点击匹配按钮向后端获取匹配的数据。
+```json
+startMatch () {
+  const param = {
+    run: this.getStateRun,
+    tag: this.getStateTag,
+    threshold: this.threshold,
+    pattern: this.getSignature,
+    length: this.getRange
+  }
+  this.fetchStateMatchData(param);
+}
+
+watchValueChange () {
+  const lineIndexs = [];
+
+  if (this.getSelectedRange.length && this.bottomBrushSelection.length) {
+    const leftBound = this.getSelectedRange[0] - this.bottomBrushSelection[0];
+    const rightBound = this.getSelectedRange[1] + this.bottomBrushSelection[1];
+
+    let signature = this.selectedRangeIndexs(leftBound, rightBound)
+      .map(v => (v >= this.getSelectedRange[0] && v < this.getSelectedRange[1]) ? 1 : 0)
+      .join('');
+
+    this.setSignature(signature);
+
+    this.jointData.forEach((lineData, index) => {
+      const testSignature = lineData.value.slice(leftBound, rightBound)
+        .map(v => (v.item >= this.getThreshold) ? 1 : 0)
+        .join('');
+      if (testSignature === this.getSignature) lineIndexs.push(index);
+    })
+  }
+  this.setSelectedLineIndexs(lineIndexs);
+  this.drawStateVisBox();
 }
 ```
