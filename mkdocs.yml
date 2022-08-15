@@ -29,7 +29,6 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-
 # Extensions
 markdown_extensions:
   - markdown.extensions.attr_list
@@ -40,14 +39,14 @@ markdown_extensions:
       generic: true
 
 nav:
-    - 首页: index.md
+  - 首页: index.md
 
-    - 快速使用:
+  - 快速使用:
       - 安装: quick_start/install.md
       - 快速上手: quick_start/quickstart.md
       - 启动可视化并在浏览器中查看: quick_start/run_visual.md
 
-    - 可视化日志写入:
+  - 可视化日志写入:
       - 模型结构: write_log/write_graph.md
       - 标量数据: write_log/write_scalar.md
       - 媒体数据: write_log/write_media.md
@@ -56,8 +55,8 @@ nav:
       - 超参数: write_log/write_hyperparm.md
       - 异常检测数据: write_log/write_exception.md
 
-    - 使用可视化组件:
-      - 主界面:   use_visualization/overall.md
+  - 使用可视化组件:
+      - 主界面: use_visualization/overall.md
       - 模型结构: use_visualization/graph.md
       - 标量数据: use_visualization/scalar.md
       - 媒体数据: use_visualization/media.md
@@ -65,14 +64,16 @@ nav:
       - 降维分析: use_visualization/embedding.md
       - 超参分析: use_visualization/hyperparm.md
       - 异常检测: use_visualization/exception.md
+      - 注意力分析: use_visualization/transformer.md
+      - 隐状态分析: use_visualization/hiddenstate.md
       - 用户定制: use_visualization/custom.md
 
-    - 开发者文档:
+  - 开发者文档:
       - 后端请求API: developer/api.md
       - 可视化前端: developer/frontend.md
       - 可视化后端启动选项: developer/commandline_for_backend.md
       - 更新记录: developer/changelog.md
       - 参与贡献: developer/contribute.md
 
-    - 开源软件许可:
+  - 开源软件许可:
       - 开源软件: thanks/license.md
