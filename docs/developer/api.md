@@ -539,3 +539,154 @@ TS-VIS中支持两种方式的模型结构，一种是包含计算节点的计�
   ] // 超参数的量度，可能有多个。适用于所有的超参数信息
 }
 ```
+
+
+##特征图Featuremap
+
+!!! 资源访问路径
+
+```
+api/featuremap?run={run}&tag={tag}&range={range}&task={task}
+```
+
+其中run、 tag、 range、 tesk缺一不可。
+
+例如api/featuremap?run=featuremap&tag=SequentialtoConv2d[8]-GradCam&range=0&task=Classification表示访问run为featuremap下的tag为SequentialtoConv2d[8]-GradCam、
+range为0、task为Classification的数据。
+
+该API返回格式如下
+
+```
+   {
+      SequentialtoConv2d[0]-GradCam:[
+         {
+            "wall_time": "1652704541.6665807",  
+            "step": 0, 
+            "Remaining_pictures": 0,    #剩余特征图张数
+            "label": label,    #模型识别的真实标签
+            "sorce_data": sorce,   #模型预测结果
+            "value": featuremap_data  #特征图数据
+         }
+      ]
+    }
+```
+
+## Transformer
+
+Transformer分为视觉Transformer和文本Transformer
+
+### 视觉Transformer
+
+!!! 资源访问路径
+
+`api/transformer?run={run}&tag={tag}&l={l}&x={x}&y={y}&g={g}&r={r}`
+
+l为模型第几层数据，x为交互时点击图像的x坐标，y为交互时点击图像的y坐标，g表示是否全局归一化，r表示全局归一化时注意力值缩放的比例。
+
+返回数据格式：
+
+```
+{
+    tag:
+	{"img": img_data, # 图像数据
+	 "attn_map": attn_map_datas, # 图像点击区域所对应的注意力值
+	 "layer": l, # 返回的是第几层的数据
+	}
+}
+```
+
+### 文本Transformer
+
+文本Transformer请求分为两步，首先请求文本数据，然后请求对应句子的注意力值。
+
+#### 请求文本数据
+
+!!! 资源访问路径
+
+`api/transformer?run=text&tag=a-transformer-sentence`
+
+返回数据格式：
+
+```
+{
+    tag:
+        [sentence1,
+         sentence2，
+         ......,
+         sentence]
+}
+```
+
+#### 请求注意力值
+
+!!! 资源访问路径
+
+`api/transformer?run=text&tag=a-transformer-0`
+
+返回数据格式：
+
+```
+{
+    tag:{
+        "wall_time": 1654566787.412733,
+        "step": 0,
+        "data":{
+            "attention": {
+                "all":{
+                    "attn": attention_data, # 注意力值
+                    "left_text": sentence1, # 左侧句子的token
+                    "right_text"： sentence2, # 右侧句子的token
+                }	
+            }
+            "bidrectional": "True",  # 是否双向模型
+            "default_filter": "all", # 默认filter,为all
+            "displayMode": "light",  # 显示方案（dark or light）
+            "layer": "0",  # 默认为0，0为显示层
+            "head": "0"    # 默认为0，0为显示头
+         }
+    }
+}
+```
+##state
+
+RNN隐状态可视化分为两步：首先获取全部维度的隐状态数据进行可视化。当前端传回需要匹配的模式后，返回匹配到的模式数据
+
+###请求隐状态数据
+
+!!! 资源访问路径
+
+`api/state?run={run}&tag={tag}&pos={pos}&range={range}`
+
+pos为请求数据初始位置；range为请求字符数
+
+返回数据格式：
+
+```
+   {
+      data：{
+         "data：hidden_state_data,     #隐状态数据
+         "max": max_value,     #隐状态最大值
+         "min": min_value,     #隐状态最小值
+         "right": num,         #右侧剩余字符串个数
+         "word": word          #请求字符串   
+      }
+   }
+```
+
+
+###请求匹配模式数据
+
+!!! 资源访问路径
+
+`api/state_select?run=rnn&tag=state&threshold=0&pattern=110`
+
+threshold为阈值;pattern为匹配模式：1为隐状态高于阈值，0为隐状态低于阈值
+
+返回数据格式：
+
+```
+   {
+      data：res    #匹配到的字符
+   }
+```
+
