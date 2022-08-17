@@ -54,6 +54,10 @@ nav:
       - 降维分析数据: write_log/write_embedding.md
       - 超参数: write_log/write_hyperparm.md
       - 异常检测数据: write_log/write_exception.md
+      - 特征图数据: write_log/write_featuremap.md
+      - 文本transformer注意力数据: write_log/write_attention_text.md
+      - 图像transformer注意力数据: write_log/write_attention_image.md
+      - RNN隐藏状态数据: write_log/write_hidden_state.md
 
   - 使用可视化组件:
       - 主界面: use_visualization/overall.md

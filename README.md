@@ -28,7 +28,9 @@ zjvis-doc
 │   │   ├── hyperparm.md                       # 超参分析使用教程
 │   │   ├── media.md                           # 媒体数据使用教程
 │   │   ├── scalar.md                          # 标量数据使用教程
-│   │   └── statistic.md                       # 统计分析使用教程
+│   │   ├── statistic.md                       # 统计分析使用教程
+│   │   ├── hiddenstate.md                     # 隐状态分析使用教程
+│   │   └── transformer.md                     # 注意力分析使用教程
 │   ├── write_log                              # 写日志教程目录
 │   │   ├── images                             # 该目录下文档使用到的图片资源
 │   │   ├── write_embedding.md                 # 写高维数据
@@ -37,6 +39,10 @@ zjvis-doc
 │   │   ├── write_hyperparm.md                 # 写超参数数据
 │   │   ├── write_media.md                     # 写媒体数据
 │   │   ├── write_scalar.md                    # 写标量数据
+│   │   ├── write_attention_image.md           # 写图像注意力数据
+│   │   ├── write_attention_text.md            # 写文本注意力数据
+│   │   ├── write_featuremap.md                # 写特征图数据
+│   │   ├── write_hidden_state.md              # 写隐状态数据
 │   │   └── write_statistic.md                 # 写统计分析数据
 │   └── index.md                               # 文档主页（禁止修改！！！）
 ├── mkdocs.yml                                 # mkdocs配置（禁止修改！！！）

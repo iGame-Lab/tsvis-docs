@@ -549,7 +549,7 @@ TS-VIS中支持两种方式的模型结构，一种是包含计算节点的计�
 api/featuremap?run={run}&tag={tag}&range={range}&task={task}
 ```
 
-其中run、 tag、 range、 tesk缺一不可。
+其中run、 tag、 range、 task缺一不可。
 
 例如api/featuremap?run=featuremap&tag=SequentialtoConv2d[8]-GradCam&range=0&task=Classification表示访问run为featuremap下的tag为SequentialtoConv2d[8]-GradCam、
 range为0、task为Classification的数据。

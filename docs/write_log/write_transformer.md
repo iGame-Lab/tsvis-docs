@@ -1,1 +1,0 @@
-Transformer分为视觉Transformer和文本Transformer
