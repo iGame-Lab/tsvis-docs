@@ -104,7 +104,87 @@ uid为节点全名，label为节点简略名，op为节点操作属性，parent�
 
 6.清空reserve栈和delByCondition栈，重绘结构图
 
+## 结构图与特征图
 
+该部分数据主要分为结构图节点数据和特征图数据，存储于structureGraphData（存储图节点数据）、featureMapData（存储特征图数据）和featureMapInfo（存储分类分数和分类结果数据），foldTag控制特征图展示区域的展开与折叠
+
+结构图state数据结构如下
+
+```json
+state = {
+  featureMapType: '',
+  featureMapData: [],
+  featureMapInfo: { "sorce_data": '', "label": '' },
+  featureMapShow: false,
+  fmType: {},
+  selectFmType: '',
+  taskType: {},
+  foldTag: true
+}
+```
+
+### 结构图数据
+
+结构图数据格式如下：
+
+```json
+[
+  {
+    "uid": ..., 
+    "label":...,
+    "op": ..., 
+    "parent":...,
+    "attrs": {...},
+    "layer":...,
+    "targets":[{"id":...,"info":...,"control":...,"num":...},...],
+    "sub_net":[{"uid": ..., 
+            "label":...,
+            "op": ..., 
+            "parent":...,
+            "attrs": {...},
+            "layer":...,
+            "targets":[{"id":...,"info":...,"control":...,"num":...},...],
+            "sub_net":[...]},...]
+  },
+  ...
+]
+```
+uid为节点全名，label为节点简略名，op为节点操作属性，parent为该节点的上级节点全名，attrs为节点属性，layer为节点层级，targets为连边目标节点列表（其中id为目标节点全名，info为边信息，control表示是否为控制边，num为重叠边数量），sub_net为节点下子节点。
+### 结构图绘制
+
+结构图绘制方法主要使用dagre_d3.js布局库
+
+具体步骤为：
+
+1.遍历模型结构数据,如果节点在expand数组中，将该节点设置为cluster，同时遍历其sub_net内节点；如果节点不在expand数组中，则将节点设置为普通节点，遍历其targets属性内目标节点，如果目标节点存在当前图中，则设置边，根据control和num设置边样式
+
+2.渲染模型结构图
+
+### 特征图展示
+
+点击结构图节点触发点击事件，通过fetchFeatures函数获取特征图数据，存储于featureMapData，
+
+```json
+// featureMapData
+featureMapData[
+  [
+     ..., //tag包括节点的id和特征图的类型
+    [...], //特征图数据
+  ],
+  ...
+]
+```
+当获取到新特征图数据，添加到featureMapData中，插入的顺序按节点的id排序；切换不同特征图方法时，清空该数组重新添加
+
+fetchFeatures函数返回的数据包括特征图信息，存储于featureMapInfo，一个神经网络分析图片得到的数据只有一份
+
+```json
+// featureMapInfo
+featureMapInfo{
+  "sorce_data": [], //存储分类分数
+  "label": [], //分类结果
+}
+```
 
  =================================================================================
 
@@ -780,6 +860,104 @@ renderMatrix (svg, filterData) {
 
   ...
 }
+```
+
+### 图像注意力
+
+#### 获取注意力激活图
+
+fetchAttentionMap函数用于获取激活图,需要param
+
+```json
+param={
+  'run': '', //用户选择的日志
+  'tag': '', //选择的图片的tag
+  'l': '', //需要获取的激活图的Layer
+  'x': '', //需要获取的激活图的x坐标
+  'y': '', //需要获取的激活图的y坐标
+  'g': '', //获取全局归一化或局部归一化的激活图
+  'r': '', //在全局归一化下，获取原图片和激活图片不同比例的激活图
+}
+```
+
+attnMap用于存储激活图
+
+```json
+attnMap={
+  "0":[], //key代表Layer，value代表该Layer下的激活图
+  "1":[],
+  ...
+}
+```
+
+#### 获取不同位置的激活图
+
+在图片展示区域的大图上点击，获取不同位置的激活图
+
+markImg函数用于计算点击位置的信息，调整选择框的位置
+
+```json
+markImg(e) {
+      //offsetX,offsetY 鼠标坐标到元素的左侧，顶部的距离
+      //target.offsetHeight,target.offsetWidth 目标的绝对尺寸
+      //targrt.offsetTop,target.offsetLeft 目标的坐标
+      this.markX = Math.min(
+        Math.max(
+          parseInt(
+            (Number(e.offsetX) / Number(e.target.offsetWidth)) *
+              this.originImgSize
+          ),
+          0
+        ),
+        249
+      );
+      this.markY = Math.min(
+        Math.max(
+          parseInt(
+            (Number(e.offsetY) / Number(e.target.offsetHeight)) *
+              this.originImgSize
+          ),
+          0
+        ),
+        249
+      );
+      if (e.offsetY <= 10) {
+        this.selectBoxStyle.top = 0 + "px";
+      } else if (e.offsetY >= e.target.offsetHeight - 10) {
+        this.selectBoxStyle.top = e.target.offsetHeight - 21 + "px";
+      } else {
+        this.selectBoxStyle.top = e.offsetY - 10 + "px";
+      }
+
+      if (e.offsetX <= 10) {
+        this.selectBoxStyle.left = 0 + "px";
+      } else if (e.offsetX >= e.target.offsetWidth - 10) {
+        this.selectBoxStyle.left = e.target.offsetWidth - 21 + "px";
+      } else {
+        this.selectBoxStyle.left = e.offsetX - 10 + "px";
+      }
+    },
+```
+
+ getAttentionMap函数用于获取相应的激活图
+
+```json
+ getAttentionMap() {
+      this.getSelectLayer.forEach((el) => {
+        if (!Object.keys(this.getAttnMap).includes(String(el))) {
+          let param = {
+            run: this.userSelectRunFile,
+            tag: this.getSelectImgTag,
+            l: el,
+            x: this.markX,
+            y: this.markY,
+            g: this.getSelectG,
+            r: this.getSelectR,
+          };
+          this.fetchAttentionMap(param);
+        }
+      });
+    },
 ```
 // =================================================================================
 

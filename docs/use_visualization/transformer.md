@@ -38,3 +38,19 @@
 
 ![attention-text-vis-text-select](./images/transformer/attention-text-vis-text-select.gif)
 
+## 图像注意力界面
+
+![attention-text-vis-text-select](./images/transformer/attention-image-vis-main.png)
+
+### 展示特征图
+用户点击选择层，选择不同的Layer，可以通过全选按钮选择全部层，点击选择框中的已选择的层后的叉号可以取消该层的选择，点击图片区域可以选择展示不同区域的激活图
+
+![attention-text-vis-text-select](./images/transformer/attention-image-vis-main-1.gif)
+
+用户可以选择不同的归一化方式，全局或者局部，在全局选项下，可以通过调节原图和激活图组合的比例查看更明显的激活图
+
+![attention-text-vis-text-select](./images/transformer/attention-image-vis-main-2.gif)
+
+用户可以通过选择图片对当前日志下的其他图片进行展示
+
+![attention-text-vis-text-select](./images/transformer/attention-image-vis-main-3.gif)
